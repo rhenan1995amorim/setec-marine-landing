@@ -1,0 +1,1118 @@
+<!DOCTYPE html><html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Grupo SETEC — Marine Service</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#a0cafc",
+                        "secondary-container": "#184974",
+                        "primary-container": "#0e2334",
+                        "on-primary-fixed-variant": "#35495b",
+                        "primary-fixed": "#d0e5fc",
+                        "on-tertiary-container": "#a38361",
+                        "inverse-on-surface": "#303032",
+                        "surface-container-highest": "#343536",
+                        "tertiary-fixed": "#ffddba",
+                        "on-background": "#e4e2e3",
+                        "on-secondary-fixed-variant": "#184974",
+                        "outline": "#8d9196",
+                        "secondary-fixed-dim": "#a0cafc",
+                        "on-primary": "#1e3244",
+                        "inverse-primary": "#4d6074",
+                        "primary": "#b4c9df",
+                        "outline-variant": "#43474c",
+                        "on-tertiary-fixed": "#2a1701",
+                        "inverse-surface": "#e4e2e3",
+                        "surface-dim": "#121315",
+                        "on-primary-container": "#778ba0",
+                        "background": "#121315",
+                        "on-surface-variant": "#c3c7cc",
+                        "on-error-container": "#ffdad6",
+                        "tertiary": "#e5c09a",
+                        "copper": "#B46E3C",
+                        "surface-container-lowest": "#0d0e10",
+                        "primary-fixed-dim": "#b4c9df",
+                        "surface-container": "#1f2021",
+                        "surface-container-low": "#1b1c1d",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "on-secondary": "#003257",
+                        "secondary-fixed": "#d1e4ff",
+                        "surface-variant": "#343536",
+                        "on-secondary-container": "#8eb8ea",
+                        "surface-container-high": "#292a2b",
+                        "surface": "#121315",
+                        "on-primary-fixed": "#071d2e",
+                        "on-surface": "#e4e2e3",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#5b4225",
+                        "on-tertiary": "#422c11",
+                        "surface-tint": "#b4c9df",
+                        "tertiary-fixed-dim": "#e5c09a",
+                        "surface-bright": "#39393b",
+                        "on-secondary-fixed": "#001d35",
+                        "tertiary-container": "#311d04",
+                        "cream-bg": "#ECE6D6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-width": "1280px",
+                        "section-padding-y": "120px",
+                        "stack-md": "24px",
+                        "stack-sm": "8px",
+                        "gutter": "32px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Outfit"],
+                        "display-xl": ["Outfit"],
+                        "label-caps": ["Outfit"],
+                        "body-md": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "highlight-italic": ["Playfair Display"],
+                        "body-lg": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "highlight-italic": ["1.1em", {"lineHeight": "1.4", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .copper-gradient-bg {
+            background: linear-gradient(135deg, #B46E3C 0%, #1e3244 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+        .hero-zoom {
+            animation: heroZoom 20s ease-in-out infinite alternate;
+        }
+        @keyframes heroZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        html { scroll-behavior: smooth; }
+
+        /* Modern mouse-wheel scroll animation */
+        @keyframes mouseScroll {
+            0% { transform: translate(-50%, 0); opacity: 1; }
+            50% { opacity: 1; }
+            100% { transform: translate(-50%, 18px); opacity: 0; }
+        }
+        .animate-mouse-scroll {
+            animation: mouseScroll 2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+        }
+
+        /* Gentle bounce for mobile scroll arrow */
+        @keyframes cleanBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+        .animate-clean-bounce {
+            animation: cleanBounce 2s ease-in-out infinite;
+        }
+        
+        /* New Nav Transition Styles */
+        #top-nav {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: transparent;
+            border-bottom-color: transparent;
+        }
+        #top-nav.nav-scrolled {
+            padding-top: 0.75rem !important;
+            padding-bottom: 0.75rem !important;
+            background-color: #1b1c1d !important; /* surface-container-low */
+            border-bottom: 1px solid rgba(141, 145, 150, 0.1); /* subtle outline */
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+        #top-nav.nav-scrolled img {
+            height: 3rem; /* slightly smaller logo */
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- Header -->
+<nav class="fixed top-0 w-full z-50 transition-all duration-300 px-8 py-6" id="top-nav">
+<div class="max-w-container-max-width mx-auto flex justify-center md:justify-between items-center">
+<a class="flex items-center gap-2" href="#"><img alt="Grupo SETEC Logo" class="w-auto h-16 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzA4N_-FJ1bT6iv66xp42ystfZfxMg396QSrdyNuPBH-O8qffL_cUWQq5GMdzaIddCG3JVpPaNt1fvgMZXDPTT75dczUzjmWcqBFXF99EzKxQTcat2f8uGtzEVAER3FfdaezweJW9Q8U93z32jJhr1KnVtQTjw0eQ4KB26SxG7VKQCd5NAWc3Xr_QDnDw4auBfv9L2K2P379B0S1ISNTfrBfalbk6o7x5n4yB5Ubb8RktaZUKP-BB4vq08VdftRfEihp1rvBhJzW6d"></a>
+<div class="hidden md:flex items-center ml-auto text-body-lg gap-12">
+<a class="nav-link font-label-caps text-white hover:text-tertiary transition-colors" href="#servicos">Serviços</a>
+<a class="nav-link font-label-caps text-white hover:text-tertiary transition-colors" href="#diferenciais">Diferenciais</a>
+<a class="nav-link font-label-caps text-white hover:text-tertiary transition-colors" href="#atuacao">Atuação</a>
+<a class="nav-link font-label-caps text-white hover:text-tertiary transition-colors" href="#contato">Contato</a>
+</div>
+<div class="hidden md:flex items-center gap-4 ml-8">
+<!-- Custom Flag Toggle Button -->
+<button class="custom-lang-btn hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300 text-base focus:outline-none" aria-label="Alterar idioma / Change language">
+  <span class="custom-lang-flag">🇺🇸</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0 bg-primary-container">
+<div class="absolute inset-0 bg-primary-container/60 z-10"></div>
+<img alt="Operações de engenharia e movimentação de carga SETEC" class="hidden md:block w-full h-full object-cover opacity-40" src="hero_bg.jpg">
+<img alt="Operações de engenharia e movimentação de carga SETEC" class="block md:hidden w-full h-full object-cover opacity-40" src="hero_mobile_bg.jpg">
+</div>
+<div class="relative z-20 max-w-container-max-width mx-auto px-8 w-full">
+<div class="reveal-up active">
+<span class="font-label-caps text-label-caps text-tertiary tracking-[0.2em] mb-4 block"><br></span>
+<h1 class="font-display-xl text-headline-lg-mobile md:text-display-xl text-white mb-6 max-w-4xl">A segurança da sua carga é <span class="font-highlight-italic italic font-normal text-tertiary">inegociável</span>.</h1>
+<p class="hidden md:block font-body-lg text-body-lg text-white/80 max-w-2xl mb-6">
+                    Garantimos a integridade dos seus ativos com engenharia de ponta e conformidade rigorosa. Do offshore ao chão de fábrica, somos seu parceiro em confiabilidade técnica.
+                </p>
+<p class="block md:hidden font-body-lg text-body-lg text-white/80 max-w-2xl mb-6">
+                    Garantimos a integridade dos seus ativos com engenharia de ponta e total conformidade técnica.
+                </p>
+<div class="mb-8 flex items-center gap-4 reveal-up active">
+<div class="flex -space-x-3"><div class="w-10 h-10 rounded-full border-2 border-primary-container/60 bg-white overflow-hidden flex items-center justify-center p-1"><img alt="VMS" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmKaUDC2kM5Qc5J2n-Q8faSROQslwBetoJC5A7fpobMIWC9RXAhpotw4fE-CQo-5kC62kHXxBRRGceyp5ZPYduNFY30GfKRO2CY_3gnNs9ThoJ9DlD3wNcNL_wcAFCR48j2lINvo48ihaTG3-rkIfA9JrQYMfX-KOahAwCA_1jh96gKZ08tiEChve1D2E5Eo_RJC28_OP0aCPcZEs6ltjNLux1u77flVmZBivJRsrjKg3jb6twlMOwdnFTZNrAhefsd-6BaZW-ZqsA"></div><div class="w-10 h-10 rounded-full border-2 border-primary-container/60 bg-white overflow-hidden flex items-center justify-center p-1"><img alt="Michelin" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkyNgt8BMKRPQNb-W3la-p-XD4cPIeznSAr_JuiJq04bELy8xNe-EeYAbBmaxbxht6hQeeb_THQyyM2Dy9zbOhps7MfZ3-nZnha2WvSM6XqEdcnR8eXypnQjc8kIj2PdwCJHq82rtaXixFBSdA2_1n1OCI6rWMNSDKCAj5U3HAoZ4dSdOi97lAty14M_j9NRN_6M2YpEhWBydI__aepE_yuuut6QSNQLS0OMAMEvz7k5k0orUoIy0amCowdlsFGp2PRdLFVLQtP_UW"></div><div class="w-10 h-10 rounded-full border-2 border-primary-container/60 bg-white overflow-hidden flex items-center justify-center p-1"><img alt="Bayer" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDumEOSU6eqoUhVoGqXELylex-w1XXR6byCXABne-AFlTczIPmAYlp7WR4WjaI9KuPm5n9zS29NauwhXNod1xIf3dbPnc2HHkh42qDNxBnOzscGtB7nWT1o26Cor02EMwo0jSWVF4GRBD_iOsmOfTodgieltp8QIOAxWJJSlC_xJXRzmeqbbusqkayA4NEWI5BQdnSYu8wAZH8V6_1dYr4hjft4gueqkXOjK2K1kqFnlfWEjSZCEjKc7iqgOJ_NBxMDOqV5lOXO2g-q"></div><div class="w-10 h-10 rounded-full border-2 border-primary-container/60 bg-white overflow-hidden flex items-center justify-center p-1"><img alt="Sopratec" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB6b-b9wRBBpdhfzlBBRyng8NcJNLXUw5k-uilRfXiArZxBVtCqRbXHjuXShUUw9N1eARdZIYbd4UUhH7kzdTHEf2-6kBzQW6jxwFL_7h-16-qquy1XQVNMgjx895ZHs2GpL8Yl7Uc9oXT-kqxuQ7ZcbErt17XnNebOxAxA96lD7YiFNGC8jv3AL9c_CYDQpUKQ1_j3iNj9l7fL9_fa7D7br_PZtpFLHidjZdTf75mgnMPjM0u7PHWca2kvmwFdbmO2saoj9eb1sh9"></div><div class="w-10 h-10 rounded-full border-2 border-primary-container/60 bg-white overflow-hidden flex items-center justify-center p-1"><img alt="Petrobras BR" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnAun9vSvvM2_EBpj1XBPVDF-5xE_MvCZqxGDf14YCcpJ-vG3CIHEEvksAtIMOTmUztKHjDZLZ-ICBm3mbX4MJCziSza6UWiz91uYMtf-4CDTVY3IlVnPL_fA5D7M1kZXqJedqZxZIoZfIP_Q8K1_PUQSW12xQm-Ot2kZtTC4X2Sow7VQ3EEfIyfT4XhKpOhYXZ945sOfFSperrS0wzE0la6UERUfQQ9xjFjgaV2ZH6bIODllTzhuPa90LoIRnQA0PdQVCT_boGMJC"></div></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-tertiary text-[14px] font-semibold tracking-wide">+ de 200 clientes ativos</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full max-w-sm md:max-w-none">
+<a class="bg-copper text-white px-10 py-4 rounded-lg font-label-caps text-label-caps text-center hover:brightness-110 shadow-xl transition-all" href="#contato">Solicitar Diagnóstico Técnico</a>
+<a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-4 rounded-lg font-label-caps text-label-caps text-center hover:bg-white/20 transition-all" href="#servicos">Ver nossos serviços</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Scroll Down Indicator -->
+<div class="absolute bottom-20 md:bottom-8 left-1/2 -translate-x-1/2 z-30">
+<a class="flex flex-col items-center group focus:outline-none" href="#quem-somos" aria-label="Rolar para a próxima seção">
+<!-- Desktop: Mouse Indicator -->
+<div class="hidden md:block w-7 h-12 border-2 border-white/40 group-hover:border-tertiary rounded-full relative transition-colors duration-300">
+<div class="w-1.5 h-1.5 bg-white group-hover:bg-tertiary rounded-full absolute left-1/2 -translate-x-1/2 top-2 animate-mouse-scroll transition-colors duration-300"></div>
+</div>
+<!-- Mobile: Clean Arrow -->
+<div class="block md:hidden animate-clean-bounce">
+<svg class="w-8 h-8 text-white/50 group-hover:text-tertiary transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Desktop Label -->
+<span class="hidden md:block font-label-caps text-[10px] text-white/40 group-hover:text-tertiary tracking-[0.25em] uppercase mt-2 transition-colors duration-300 select-none">Rolar</span>
+</a>
+</div>
+
+<!-- Mobile Language Selector (Home Page Only) -->
+<div class="absolute bottom-8 left-8 z-30 md:hidden flex items-center justify-center">
+  <button class="custom-lang-btn relative w-10 h-10 rounded-full bg-[#1b1c1d]/60 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none" aria-label="Alterar idioma / Change language">
+    <span class="custom-lang-flag text-base">🇺🇸</span>
+  </button>
+</div>
+</section>
+<!-- Quem Somos -->
+<section id="quem-somos" class="pt-16 md:pt-32 pb-0 bg-cream-bg text-primary-container">
+<div class="max-w-container-max-width mx-auto px-8 grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-10 md:mb-16">
+<div class="reveal-up">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6 leading-tight">Especialistas em movimentação de carga, do mar à indústria.</h2>
+<p class="hidden md:block font-body-lg text-body-lg text-on-primary-fixed-variant mb-8">
+                    O Grupo SETEC nasceu com a missão de elevar os padrões de segurança e eficiência em operações críticas. Combinamos décadas de experiência técnica com as mais modernas tecnologias de inspeção e monitoramento.
+                </p>
+<p class="block md:hidden font-body-lg text-body-lg text-on-primary-fixed-variant mb-6">
+                    Elevamos os padrões de segurança em operações críticas. Combinamos décadas de experiência com moderna tecnologia de inspeção.
+                </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-copper">verified</span>
+<span class="hidden md:inline font-body-md">Certificações nacionais e internacionais reconhecidas.</span>
+<span class="inline md:hidden font-body-md">Certificações nacionais e internacionais.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-copper">engineering</span>
+<span class="hidden md:inline font-body-md">Equipe técnica multidisciplinar altamente qualificada.</span>
+<span class="inline md:hidden font-body-md">Equipe técnica altamente qualificada.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-copper">schedule</span>
+<span class="hidden md:inline font-body-md">Atendimento 24/7 para operações emergenciais.</span>
+<span class="inline md:hidden font-body-md">Atendimento 24/7 emergencial.</span>
+</li>
+</ul>
+</div>
+<div class="relative reveal-up">
+<img alt="Port Operations" class="rounded-xl shadow-2xl w-full" data-alt="A high-contrast action shot of port operations during the golden hour. A massive orange gantry crane is visible in the background, while the foreground focuses on the intricate steel cables and docking equipment of a large container ship. The lighting creates deep shadows and brilliant highlights on the industrial textures. The overall mood is professional, busy, and reflects high-stakes maritime logistics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8VZkE1KFQCk9ySmy1fLt3IzinQZlU1gmDNn98O2pTETfwN8B508Q0f3LYGzltkrvFDGdRyoSdOoYeFhA6gsVcz61hxeT_ZFysuUyNv2pIZCfgek3aMdoFTZXnMCEhWjSekfwC7Z05vg10ZIlpNbAO2W5th9ryDJhNy2nkBucIl5NsBEesvk8uiUf28IvN7p9ERsHkps86b6jlkVPwYN0g3arBIAlvfzG09SMOUENFTsnk_A_E5bJtzTCS08ygoQKW3iEHFweoRAv5">
+<div class="absolute -bottom-8 -left-8 bg-copper p-8 rounded-lg text-white shadow-xl hidden lg:block">
+<p class="font-display-xl text-[48px] font-bold leading-none">+15</p>
+<p class="font-label-caps text-label-caps">Anos de experiência</p>
+</div>
+</div>
+</div>
+<!-- Partner Marquee Title -->
+<div class="max-w-container-max-width mx-auto px-8 text-center mb-8 reveal-up">
+<h3 class="font-label-caps text-[13px] text-copper tracking-[0.2em] uppercase font-semibold">Empresas que escolheram o Grupo Setec</h3>
+</div>
+<!-- Marquee -->
+<div class="w-full bg-cream-bg py-8 overflow-hidden border-t border-b border-primary-container/10 z-30">
+<div class="flex w-max gap-20 items-center animate-marquee flex-nowrap">
+<!-- First set of logos -->
+<div class="flex gap-20 items-center shrink-0">
+<img alt="Navship" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/navship.png">
+<img alt="Macnor" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/macnor.png">
+<img alt="Tecmar" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/tecmar.png">
+<img alt="Nitnave" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/nitnave.png">
+<img alt="KSA" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/ksa.png">
+<img alt="Aegir" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/aegir.png">
+<img alt="STX" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/stx.png">
+<img alt="Baker Hughes" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/baker_hughes.png">
+<img alt="Siemens" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/siemens.png">
+</div>
+<!-- Duplicate set of logos for seamless loop -->
+<div class="flex gap-20 items-center shrink-0" aria-hidden="true">
+<img alt="Navship" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/navship.png">
+<img alt="Macnor" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/macnor.png">
+<img alt="Tecmar" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/tecmar.png">
+<img alt="Nitnave" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/nitnave.png">
+<img alt="KSA" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/ksa.png">
+<img alt="Aegir" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/aegir.png">
+<img alt="STX" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/stx.png">
+<img alt="Baker Hughes" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/baker_hughes.png">
+<img alt="Siemens" crossorigin="anonymous" class="h-12 w-auto object-contain hover:scale-110 transition-transform" src="logos/siemens.png">
+</div>
+</div>
+</div>
+</section>
+<!-- Problema vs Solução -->
+<section class="py-16 md:py-32 bg-[#1F4E79] text-white overflow-hidden">
+<div class="max-w-container-max-width mx-auto px-8 text-center mb-10 md:mb-16 reveal-up">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Movimentação de carga Segura e Certificada.</h2>
+<p class="text-secondary max-w-2xl mx-auto text-sm md:text-base">Mitigamos riscos operacionais através de três pilares fundamentais de excelência técnica.</p>
+</div>
+<div class="max-w-container-max-width mx-auto px-8 grid md:grid-cols-3 gap-6 md:gap-8">
+<div class="glass-card p-6 sm:p-10 rounded-xl hover:border-copper/50 transition-all group reveal-up">
+<div class="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-copper/20 transition-all">
+<span class="material-symbols-outlined text-3xl text-tertiary">analytics</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Inspeção Preditiva</h3>
+<p class="text-on-primary-container font-body-md">Identificação antecipada de falhas estruturais através de ensaios não destrutivos e análise técnica rigorosa.</p>
+</div>
+<div class="glass-card p-6 sm:p-10 rounded-xl hover:border-copper/50 transition-all group reveal-up" style="transition-delay: 100ms;">
+<div class="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-copper/20 transition-all">
+<span class="material-symbols-outlined text-3xl text-tertiary">fact_check</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Conformidade Total</h3>
+<p class="hidden md:block text-on-primary-container font-body-md">Garantia de que todo equipamento e acessório de movimentação esteja em total acordo com as normas vigentes (NR, ISO, IMO).</p>
+<p class="block md:hidden text-on-primary-container font-body-md">Equipamentos e acessórios em total conformidade com as normas vigentes (NR, ISO, IMO).</p>
+</div>
+<div class="glass-card p-6 sm:p-10 rounded-xl hover:border-copper/50 transition-all group reveal-up" style="transition-delay: 200ms;">
+<div class="w-16 h-16 bg-white/10 rounded-lg flex items-center justify-center mb-8 group-hover:bg-copper/20 transition-all">
+<span class="material-symbols-outlined text-3xl text-tertiary">security</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Gestão de Risco</h3>
+<p class="hidden md:block text-on-primary-container font-body-md">Sistemas inteligentes de rastreabilidade e controle de certificados que eliminam erros humanos e vencimentos críticos.</p>
+<p class="block md:hidden text-on-primary-container font-body-md">Rastreabilidade e controle de certificados inteligentes para eliminar erros e vencimentos.</p>
+</div>
+</div>
+</section>
+<!-- Serviços (Bento Grid) -->
+<section class="py-16 md:py-32 bg-cream-bg text-primary-container" id="servicos">
+<div class="max-w-container-max-width mx-auto px-8">
+<div class="mb-10 md:mb-16 reveal-up">
+<span class="font-label-caps text-label-caps text-copper tracking-widest block mb-4 uppercase">Portfólio de Soluções</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Serviços Especializados</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-6 h-auto md:h-[800px]">
+<!-- Card 1: Inspeção de Acessórios -->
+<div class="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-outline-variant/10 flex flex-col justify-between group hover:shadow-xl transition-all md:row-span-2 reveal-up">
+<div>
+<span class="material-symbols-outlined text-4xl text-copper mb-6">link</span>
+<h3 class="font-headline-md text-headline-md mb-4">Inspeção de Acessórios</h3>
+<p class="hidden md:block text-on-primary-fixed-variant font-body-md">Exame rigoroso de cabos de aço, correntes, cintas, manilhas e ganchos. Nossos especialistas garantem que cada elo da sua operação esteja livre de defeitos, utilizando técnicas visuais e instrumentais avançadas.</p>
+<p class="block md:hidden text-on-primary-fixed-variant font-body-md">Exame rigoroso de cabos de aço, correntes, manilhas e ganchos. Garantimos sua operação livre de defeitos com técnicas avançadas.</p>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/10">
+<span class="font-label-caps text-label-caps text-copper group-hover:translate-x-2 inline-block transition-transform">Saiba mais →</span>
+</div>
+</div>
+<!-- Card 2: Teste de Carga -->
+<div class="bg-primary-container text-white p-6 sm:p-10 rounded-2xl shadow-lg flex flex-col justify-between group hover:brightness-110 transition-all md:col-span-2 reveal-up" style="transition-delay: 100ms;">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="md:w-2/3">
+<span class="material-symbols-outlined text-4xl text-tertiary mb-6">weight</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-white">Teste de Carga (Load Test)</h3>
+<p class="hidden md:block text-on-primary-container font-body-md">Execução de testes estáticos e dinâmicos em guindastes, pontes rolantes e turcos. Utilizamos bolsas de água ou pesos padronizados, fornecendo certificados de conformidade imediatos após a validação.</p>
+<p class="block md:hidden text-on-primary-container font-body-md">Testes estáticos e dinâmicos em guindastes e pontes rolantes com emissão imediata de laudos técnicos.</p>
+</div>
+<div class="md:w-1/3 hidden md:block">
+<img alt="Load test" class="rounded-lg object-cover h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8VZkE1KFQCk9ySmy1fLt3IzinQZlU1gmDNn98O2pTETfwN8B508Q0f3LYGzltkrvFDGdRyoSdOoYeFhA6gsVcz61hxeT_ZFysuUyNv2pIZCfgek3aMdoFTZXnMCEhWjSekfwC7Z05vg10ZIlpNbAO2W5th9ryDJhNy2nkBucIl5NsBEesvk8uiUf28IvN7p9ERsHkps86b6jlkVPwYN0g3arBIAlvfzG09SMOUENFTsnk_A_E5bJtzTCS08ygoQKW3iEHFweoRAv5">
+</div>
+</div>
+<div class="mt-8">
+<span class="font-label-caps text-label-caps text-tertiary group-hover:translate-x-2 inline-block transition-transform">Consultar engenharia →</span>
+</div>
+</div>
+<!-- Card 3: Consultoria Técnica -->
+<div class="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-outline-variant/10 flex flex-col justify-between group hover:shadow-xl transition-all reveal-up" style="transition-delay: 200ms;">
+<div>
+<span class="material-symbols-outlined text-4xl text-copper mb-6">psychology</span>
+<h3 class="font-headline-md text-headline-md mb-4">Engenharia e Consultoria</h3>
+<p class="hidden md:block text-on-primary-fixed-variant font-body-md">Elaboração de planos de rigging, análise de falhas estruturais e pareceres técnicos de conformidade normativa.</p>
+<p class="block md:hidden text-on-primary-fixed-variant font-body-md">Planos de rigging, análise de falhas estruturais e pareceres de conformidade.</p>
+</div>
+<span class="font-label-caps text-label-caps text-copper group-hover:translate-x-2 inline-block transition-transform">Falar com consultor →</span>
+</div>
+<!-- Card 4: Certificação -->
+<div class="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-outline-variant/10 flex flex-col justify-between group hover:shadow-xl transition-all reveal-up" style="transition-delay: 300ms;">
+<div>
+<span class="material-symbols-outlined text-4xl text-copper mb-6">approval</span>
+<h3 class="font-headline-md text-headline-md mb-4">Certificação de Integridade</h3>
+<p class="hidden md:block text-on-primary-fixed-variant font-body-md">Emissão de laudos e ARTs assinadas por engenheiros especializados para auditorias e fiscalização.</p>
+<p class="block md:hidden text-on-primary-fixed-variant font-body-md">Laudos e ARTs emitidos por engenheiros para auditorias e fiscalizações.</p>
+</div>
+<span class="font-label-caps text-label-caps text-copper group-hover:translate-x-2 inline-block transition-transform">Validar documentos →</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Gestão Integrada -->
+<section class="py-16 md:py-32 bg-primary-container text-white">
+<div class="max-w-container-max-width mx-auto px-8 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+<div class="reveal-up">
+<span class="font-label-caps text-label-caps text-tertiary mb-4 block">TRANSFORMAÇÃO DIGITAL</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6 md:mb-8 leading-tight">Toda a sua operação documentada em um só lugar.</h2>
+<div class="space-y-6 md:space-y-8">
+<div class="flex gap-4 md:gap-6">
+<div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary">cloud_done</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] mb-1 md:mb-2">Acesso Cloud 24/7</h4>
+<p class="hidden md:block text-on-primary-container">Seus certificados de inspeção e laudos técnicos disponíveis a qualquer momento, em qualquer lugar.</p>
+<p class="block md:hidden text-on-primary-container text-sm">Certificados e laudos na nuvem, disponíveis em tempo real.</p>
+</div>
+</div>
+<div class="flex gap-4 md:gap-6">
+<div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary">notifications_active</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] mb-1 md:mb-2">Alertas de Vencimento</h4>
+<p class="hidden md:block text-on-primary-container">O sistema notifica automaticamente sua equipe sobre inspeções obrigatórias que estão próximas da data de expiração.</p>
+<p class="block md:hidden text-on-primary-container text-sm">Notificações automáticas de prazos de inspeções.</p>
+</div>
+</div>
+<div class="flex gap-4 md:gap-6">
+<div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary">qr_code_2</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[20px] mb-1 md:mb-2">Rastreabilidade via QR Code</h4>
+<p class="hidden md:block text-on-primary-container">Cada item inspecionado recebe uma tag única para consulta instantânea do histórico de manutenção no campo.</p>
+<p class="block md:hidden text-on-primary-container text-sm">Etiquetas com QR Code para consulta rápida de histórico em campo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="reveal-up">
+<div class="relative bg-white/5 rounded-2xl p-4 border border-white/10 shadow-2xl overflow-hidden">
+<img alt="Management Dashboard Mockup" class="w-full rounded-lg shadow-inner" data-alt="A clean, minimalist desktop computer monitor displaying a sophisticated industrial management dashboard. The UI features copper-accented progress rings for compliance tracking, technical report lists with status indicators, and complex equipment maintenance schedules. The overall look is modern, corporate, and highly professional, set against a pristine light grey background with a small succulent plant nearby." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs25zYWeYH2PYfTWYk1e0sxXF0DO9r8Jz7V0NHb_V-lQVdWPwSf0k6UwI_bElzemxEM9OgQvMJ3-_B-uPWgPVUlfDdikYRIIWCKgbLosX--agfgPjdZ4119rI34Rjg2iamXkkf_oJVOr1dxukuAVtQRTOUT7J9xbq6TiaXxcFHzbKzxvhrqTQYh7mcRddx6c-FioYIzBRW3o7uT26UB2cy0mkKBn8ScDQe8CWVYquUlpwqI4z0KI94513SVkPRGyIQ7TtHlC4R3Mfw">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-container/40 to-transparent pointer-events-none"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Locação de Mão de Obra e Atuação -->
+<section class="py-16 md:py-32 bg-cream-bg text-primary-container" id="atuacao">
+<div class="max-w-container-max-width mx-auto px-8 mb-10 md:mb-16 reveal-up">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-center mb-4">Presença em todo o Ecossistema Industrial</h2>
+<p class="hidden md:block text-on-primary-fixed-variant text-center max-w-2xl mx-auto">Nossas equipes atuam nos ambientes mais desafiadores, garantindo continuidade e segurança operacional.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-center max-w-2xl mx-auto text-sm">Equipes qualificadas nos ambientes mais desafiadores do setor.</p>
+</div>
+<div class="max-w-container-max-width mx-auto px-8 grid md:grid-cols-3 gap-6 md:gap-8">
+<!-- Embarcações -->
+<div class="group relative h-[350px] md:h-[500px] overflow-hidden rounded-2xl shadow-xl reveal-up">
+<img alt="Embarcações" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A detailed, professional photograph of an industrial offshore vessel's deck, highlighting the complex piping, winch systems, and heavy maritime equipment. The lighting is crisp and editorial, focusing on the dark navy and industrial grey tones. The mood is one of extreme technical precision and robust safety within a maritime environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCTnIvM8_mdWxY_-crzIyAame3hI7FnQeOW2UhyG-P9eKIoPQ7R7q5x8VdTewEkYzgqLOJDduxIAEZLL3v0UjkTVblQmK5Y1ojxx0bWutz449aYWMu5J8ilcVCjUIEez3hrBl575V1GXDfi6hFoONpRR_xjQ3-Q83UbQGlLL9o9BiuQ-eGS0uqI_FiuTU7xkApeu6P-MeXqFg29PlWjGKG3vaBBKlra1JOPzLk-MsbvC422-2yUjQrm_HgTiyi_vDJGJUj97R1Kc4m">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 sm:p-8">
+<span class="font-label-caps text-label-caps text-tertiary mb-2 block">MARÍTIMO</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Embarcações e Offshore</h3>
+<p class="hidden md:block text-on-primary-container text-sm">Inspeções em alto mar e certificação de guindastes offshore e turcos de salvatagem.</p>
+<p class="block md:hidden text-on-primary-container text-xs">Inspeções offshore e certificação de guindastes e turcos.</p>
+</div>
+</div>
+<!-- Portos -->
+<div class="group relative h-[350px] md:h-[500px] overflow-hidden rounded-2xl shadow-xl reveal-up" style="transition-delay: 100ms;">
+<img alt="Portos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A wide-angle professional shot of a busy shipping port during twilight. Huge orange container cranes loom over massive vessels, with stacks of colorful containers arranged in the foreground. The lighting is dramatic, with long shadows and brilliant pier lights reflecting on the water. It conveys a sense of large-scale logistics and industrial power." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8VZkE1KFQCk9ySmy1fLt3IzinQZlU1gmDNn98O2pTETfwN8B508Q0f3LYGzltkrvFDGdRyoSdOoYeFhA6gsVcz61hxeT_ZFysuUyNv2pIZCfgek3aMdoFTZXnMCEhWjSekfwC7Z05vg10ZIlpNbAO2W5th9ryDJhNy2nkBucIl5NsBEesvk8uiUf28IvN7p9ERsHkps86b6jlkVPwYN0g3arBIAlvfzG09SMOUENFTsnk_A_E5bJtzTCS08ygoQKW3iEHFweoRAv5">
+<div class="absolute inset-0 bg-gradient-to-t from-[#1F4E79]/90 via-[#1F4E79]/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 sm:p-8">
+<span class="font-label-caps text-label-caps text-tertiary mb-2 block">LOGÍSTICA</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Terminais Portuários</h3>
+<p class="hidden md:block text-on-primary-container text-sm">Manutenção de infraestrutura de movimentação pesada e testes de carga em guindastes de cais.</p>
+<p class="block md:hidden text-on-primary-container text-xs">Testes de carga e manutenção de guindastes portuários.</p>
+</div>
+</div>
+<!-- Fábricas -->
+<div class="group relative h-[350px] md:h-[500px] overflow-hidden rounded-2xl shadow-xl reveal-up" style="transition-delay: 200ms;">
+<img alt="Fábricas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="An interior view of a modern industrial factory floor during a planned maintenance shutdown. The environment is impeccably clean, with bright overhead lighting reflecting off polished surfaces and yellow safety lines. Technical equipment and overhead cranes are visible, emphasizing a 'safety first' corporate culture. The atmosphere is calm, precise, and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApzef6aQ8GZTYEn2sHXC1h55hAF-J0RkX576-jjC80rLlbMAdl82GXiAo8Z-XRIQ0XelZ2ATbx-9xXHhtdStkUwuwUBC2YyLm_MSfjKx9nF3cPAkxsyBock3NjU1Pey2h198Gl0ZL_bj-LnU1LvothULD0IVUXyHR45GEn-gY3UxVk8RD2hsC2jgI_aHnkJemP7B7ShWPh6bWNBuvMDP2-VhMW5AMHCmFmZRcxdt2BJ_wGe6K03AAAJlqLxPSQCLk1sBZiShPjB-dj">
+<div class="absolute inset-0 bg-gradient-to-t from-[#35495b]/90 via-[#35495b]/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 sm:p-8">
+<span class="font-label-caps text-label-caps text-tertiary mb-2 block">INDUSTRIAL</span>
+<h3 class="font-headline-md text-headline-md text-white mb-4">Fábricas e Usinas</h3>
+<p class="hidden md:block text-on-primary-container text-sm">Gestão completa de acessórios de içamento e pontes rolantes em plantas industriais complexas.</p>
+<p class="block md:hidden text-on-primary-container text-xs">Gestão de içamento e pontes rolantes em plantas industriais.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Números -->
+<section class="py-10 md:py-20 bg-primary-container border-y border-white/10">
+<div class="hidden md:grid max-w-container-max-width mx-auto px-8 grid-cols-4 gap-12 text-center">
+<div class="reveal-up">
+<p class="font-display-xl text-[36px] md:text-[56px] text-copper mb-2 font-bold">+15</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-xs md:text-sm">Anos de atuação</p>
+</div>
+<div class="reveal-up" style="transition-delay: 100ms;">
+<p class="font-display-xl text-[36px] md:text-[56px] text-copper mb-2 font-bold">+50 mil</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-xs md:text-sm">Itens inspecionados</p>
+</div>
+<div class="reveal-up" style="transition-delay: 200ms;">
+<p class="font-display-xl text-[36px] md:text-[56px] text-copper mb-2 font-bold">+200</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-xs md:text-sm">Clientes ativos</p>
+</div>
+<div class="reveal-up" style="transition-delay: 300ms;">
+<p class="font-display-xl text-[36px] md:text-[56px] text-copper mb-2 font-bold">Nacional</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-xs md:text-sm">Cobertura completa</p>
+</div>
+</div>
+
+<!-- Mobile-only Stats Carousel (Marquee) -->
+<div class="block md:hidden w-full overflow-hidden">
+<div class="flex w-max gap-12 items-center animate-marquee flex-nowrap">
+<!-- First set of stats -->
+<div class="flex gap-12 items-center shrink-0">
+<div class="text-center px-4">
+<p class="font-display-xl text-[36px] text-copper mb-1 font-bold">+15</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-[11px]">Anos de atuação</p>
+</div>
+<div class="text-center px-4">
+<p class="font-display-xl text-[36px] text-copper mb-1 font-bold">+50 mil</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-[11px]">Itens inspecionados</p>
+</div>
+<div class="text-center px-4">
+<p class="font-display-xl text-[36px] text-copper mb-1 font-bold">+200</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-[11px]">Clientes ativos</p>
+</div>
+<div class="text-center px-4">
+<p class="font-display-xl text-[36px] text-copper mb-1 font-bold">Nacional</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-[11px]">Cobertura completa</p>
+</div>
+</div>
+<!-- Duplicate set of stats for seamless loop -->
+<div class="flex gap-12 items-center shrink-0" aria-hidden="true">
+<div class="text-center px-4">
+<p class="font-display-xl text-[36px] text-copper mb-1 font-bold">+15</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-[11px]">Anos de atuação</p>
+</div>
+<div class="text-center px-4">
+<p class="font-display-xl text-[36px] text-copper mb-1 font-bold">+50 mil</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-[11px]">Itens inspecionados</p>
+</div>
+<div class="text-center px-4">
+<p class="font-display-xl text-[36px] text-copper mb-1 font-bold">+200</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-[11px]">Clientes ativos</p>
+</div>
+<div class="text-center px-4">
+<p class="font-display-xl text-[36px] text-copper mb-1 font-bold">Nacional</p>
+<p class="font-label-caps text-label-caps text-on-primary-container text-[11px]">Cobertura completa</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Diferenciais -->
+<section class="py-16 md:py-32 bg-cream-bg text-primary-container" id="diferenciais">
+<div class="max-w-container-max-width mx-auto px-8">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-10 md:mb-16 text-center reveal-up">Por que escolher o Grupo SETEC?</h2>
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 md:gap-x-12 md:gap-y-16">
+<!-- 9 Items -->
+<div class="flex gap-4 reveal-up">
+<span class="material-symbols-outlined text-copper shrink-0">engineering</span>
+<div>
+<h4 class="font-headline-md text-[18px] mb-2">Corpo Técnico Próprio</h4>
+<p class="hidden md:block text-on-primary-fixed-variant text-sm">Não terceirizamos nossa expertise. Nossos inspetores são funcionários treinados.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-sm">Inspetores próprios e certificados, sem terceirização.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up">
+<span class="material-symbols-outlined text-copper shrink-0">verified_user</span>
+<div>
+<h4 class="font-headline-md text-[18px] mb-2">Conformidade ISO</h4>
+<p class="hidden md:block text-on-primary-fixed-variant text-sm">Processos auditados e certificados pelos mais altos padrões de qualidade.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-sm">Processos certificados pelos mais altos padrões.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up">
+<span class="material-symbols-outlined text-copper shrink-0">timer</span>
+<div>
+<h4 class="font-headline-md text-[18px] mb-2">Resposta Rápida</h4>
+<p class="hidden md:block text-on-primary-fixed-variant text-sm">Mobilização imediata para paradas de manutenção e emergências.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-sm">Atendimento ágil para emergências e paradas.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up">
+<span class="material-symbols-outlined text-copper shrink-0">history</span>
+<div>
+<h4 class="font-headline-md text-[18px] mb-2">Histórico Completo</h4>
+<p class="hidden md:block text-on-primary-fixed-variant text-sm">Rastreabilidade total de cada componente desde o primeiro dia.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-sm">Histórico completo de cada componente.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up">
+<span class="material-symbols-outlined text-copper shrink-0">handyman</span>
+<div>
+<h4 class="font-headline-md text-[18px] mb-2">Tecnologia de Ponta</h4>
+<p class="hidden md:block text-on-primary-fixed-variant text-sm">Uso de drones e ensaios avançados para inspeções em áreas de difícil acesso.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-sm">Uso de drones e tecnologia para acessos difíceis.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up">
+<span class="material-symbols-outlined text-copper shrink-0">school</span>
+<div>
+<h4 class="font-headline-md text-[18px] mb-2">Treinamentos</h4>
+<p class="hidden md:block text-on-primary-fixed-variant text-sm">Capacitação técnica para as equipes operacionais dos nossos clientes.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-sm">Capacitação técnica das equipes dos clientes.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up">
+<span class="material-symbols-outlined text-copper shrink-0">inventory</span>
+<div>
+<h4 class="font-headline-md text-[18px] mb-2">Gestão de Estoque</h4>
+<p class="hidden md:block text-on-primary-fixed-variant text-sm">Apoio na seleção e reposição inteligente de acessórios de içamento.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-sm">Apoio na reposição inteligente de acessórios.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up">
+<span class="material-symbols-outlined text-copper shrink-0">shield</span>
+<div>
+<h4 class="font-headline-md text-[18px] mb-2">Seguro de RC Profissional</h4>
+<p class="hidden md:block text-on-primary-fixed-variant text-sm">Tranquilidade jurídica e financeira para nossos parceiros.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-sm">Seguro de responsabilidade civil profissional.</p>
+</div>
+</div>
+<div class="flex gap-4 reveal-up">
+<span class="material-symbols-outlined text-copper shrink-0">public</span>
+<div>
+<h4 class="font-headline-md text-[18px] mb-2">Práticas ESG</h4>
+<p class="hidden md:block text-on-primary-fixed-variant text-sm">Compromisso com a sustentabilidade e segurança social nas operações.</p>
+<p class="block md:hidden text-on-primary-fixed-variant text-sm">Ações focadas em sustentabilidade e governança.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Depoimento -->
+<section class="py-16 md:py-32 bg-primary-container text-white overflow-hidden relative">
+<div class="max-w-container-max-width mx-auto px-8 relative z-10 flex flex-col items-center">
+<div class="reveal-up text-center mb-8 md:mb-12">
+<span class="material-symbols-outlined text-6xl text-tertiary/20 block mb-6">format_quote</span>
+<h3 class="hidden md:block font-headline-lg text-headline-lg italic max-w-4xl mx-auto leading-tight">
+                    "A SETEC transformou nossa gestão de segurança. Hoje temos controle total sobre os certificados e a confiança de que cada içamento é feito com o máximo rigor técnico."
+                </h3>
+<h3 class="block md:hidden font-headline-lg text-headline-lg-mobile italic max-w-4xl mx-auto leading-tight">
+                    "A SETEC transformou nossa segurança. Temos controle total dos laudos e máxima confiança nos içamentos."
+                </h3>
+</div>
+<div class="flex items-center gap-6 reveal-up">
+<img alt="Testimonial Avatar" class="w-20 h-20 rounded-full border-2 border-tertiary object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8oDX43B5qP1ad1Inw0V7xj0YOZYAYvKowMCa4VNfdlpx2kjU_r6GkIdoeyZhS3lI5Knaywft4XtW_lD4XhcL6lgqIt9rUfd0MjYfox-53QYKow_mt3w1czSemELJMlaeSCkZ5k0jY1YScVX0qTJNKnYs3O7PsvCX7ECv0cTBRD3vhUibN-8Eji_NW4JEdSFUZ8jmsUP_GfUYQZPNUBVVdLW7gpz_pYWO7PiE8HcsuZN61B58VOTWvo5faOFPlAB5P3ZoDUqBqf8bY">
+<div class="text-left">
+<p class="font-headline-md text-[20px] mb-1">Eng. Ricardo Almeida</p>
+<p class="font-label-caps text-label-caps text-on-primary-container">Gerente de Operações · Terminal Marítimo Sul</p>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 opacity-5 pointer-events-none">
+<div class="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] bg-tertiary rounded-full blur-[120px]"></div>
+</div>
+</section>
+<!-- CTA Final + Formulário -->
+<section class="py-16 md:py-32 copper-gradient-bg" id="contato">
+<div class="max-w-container-max-width mx-auto px-8 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+<div class="reveal-up">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-4 md:mb-6">Pronto para elevar o nível de segurança da sua operação?</h2>
+<p class="hidden md:block font-body-lg text-body-lg text-white/80 mb-10">Solicite um diagnóstico técnico ou peça um orçamento personalizado para sua empresa. Nossa equipe entrará em contato em menos de 24 horas.</p>
+<p class="block md:hidden font-body-lg text-body-lg text-white/80 mb-6">Solicite um diagnóstico técnico. Responderemos em menos de 24 horas.</p>
+<div class="space-y-6 hidden md:block">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">phone_in_talk</span>
+<span class="font-body-md text-white">+55 (21) 98287-4662</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">mail</span>
+<span class="font-body-md text-white">comercial@gruposetec.com.br</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">location_on</span>
+<span class="font-body-md text-white">R. Madureira, 4147 - Boa Vista, São Gonçalo</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-6 sm:p-10 shadow-2xl reveal-up">
+<form action="#" class="space-y-6">
+<div class="grid sm:grid-cols-2 gap-6">
+<div>
+<label class="font-label-caps text-label-caps text-primary-container mb-2 block">Nome Completo</label>
+<input class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="Seu nome" type="text">
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-primary-container mb-2 block">E-mail Corporativo</label>
+<input class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="seu@empresa.com.br" type="email">
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-6">
+<div>
+<label class="font-label-caps text-label-caps text-primary-container mb-2 block">Telefone</label>
+<input class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="(00) 00000-0000" type="tel">
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-primary-container mb-2 block">Empresa</label>
+<input class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="Nome da empresa" type="text">
+</div>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-primary-container mb-2 block">Serviço de Interesse</label>
+<select class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container">
+<option>Inspeção de Acessórios</option>
+<option>Teste de Carga</option>
+<option>Engenharia/Consultoria</option>
+<option>Locação de Mão de Obra</option>
+<option>Outros</option>
+</select>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-primary-container mb-2 block">Mensagem</label>
+<textarea class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="Como podemos ajudar?" rows="4"></textarea>
+</div>
+<button class="w-full bg-copper text-white py-4 rounded-lg font-label-caps text-label-caps shadow-lg hover:brightness-110 active:scale-95 transition-all" type="submit">Enviar solicitação</button>
+</form>
+</div>
+<!-- Mobile-only Contact Info -->
+<div class="space-y-6 block md:hidden reveal-up mt-8">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">phone_in_talk</span>
+<span class="font-body-md text-white">+55 (21) 98287-4662</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">mail</span>
+<span class="font-body-md text-white">comercial@gruposetec.com.br</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">location_on</span>
+<span class="font-body-md text-white">R. Madureira, 4147 - Boa Vista, São Gonçalo</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary-container text-white py-16 md:py-24 border-t border-white/5">
+<div class="max-w-container-max-width mx-auto px-8">
+<div class="grid md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-1 md:col-span-1">
+<a class="flex items-center gap-2 mb-6" href="#">
+<img alt="Grupo SETEC Logo" class="w-auto h-16" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzA4N_-FJ1bT6iv66xp42ystfZfxMg396QSrdyNuPBH-O8qffL_cUWQq5GMdzaIddCG3JVpPaNt1fvgMZXDPTT75dczUzjmWcqBFXF99EzKxQTcat2f8uGtzEVAER3FfdaezweJW9Q8U93z32jJhr1KnVtQTjw0eQ4KB26SxG7VKQCd5NAWc3Xr_QDnDw4auBfv9L2K2P379B0S1ISNTfrBfalbk6o7x5n4yB5Ubb8RktaZUKP-BB4vq08VdftRfEihp1rvBhJzW6d">
+</a>
+<p class="text-on-primary-container text-sm leading-relaxed mb-8">Referência nacional em soluções técnicas para movimentação de carga e segurança operacional.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-tertiary hover:text-primary-container transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-tertiary hover:text-primary-container transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-tertiary mb-6">Links Rápidos</h5>
+<ul class="space-y-4">
+<li class=""><a class="text-on-primary-container hover:text-tertiary transition-colors" href="#">Quem Somos</a></li>
+<li class=""><a class="text-on-primary-container hover:text-tertiary transition-colors" href="#servicos">Serviços Técnicos</a></li>
+<li class=""><a class="text-on-primary-container hover:text-tertiary transition-colors" href="#atuacao">Áreas de Atuação</a></li>
+<li class=""><a class="text-on-primary-container hover:text-tertiary transition-colors" href="#">Trabalhe Conosco</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-tertiary mb-6">Legal</h5>
+<ul class="space-y-4">
+<li class=""><a class="text-on-primary-container hover:text-tertiary transition-colors" href="#">Termos de Uso</a></li>
+<li class=""><a class="text-on-primary-container hover:text-tertiary transition-colors" href="#">Política de Privacidade</a></li>
+<li class=""><a class="text-on-primary-container hover:text-tertiary transition-colors" href="#">Compliance</a></li>
+<li class=""><a class="text-on-primary-container hover:text-tertiary transition-colors" href="#">Certificações</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-tertiary mb-6">Newsletter</h5>
+<p class="text-on-primary-container text-sm mb-4">Receba atualizações técnicas e normativas.</p>
+<div class="flex gap-2">
+<input class="bg-white/5 border-white/10 rounded-lg px-4 py-2 w-full text-sm focus:ring-tertiary focus:border-tertiary" placeholder="Seu e-mail" type="email">
+<button class="bg-tertiary text-primary-container px-4 py-2 rounded-lg font-label-caps text-[10px]">OK</button>
+</div>
+</div>
+</div>
+<div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-on-primary-container text-[12px]">© 2026 Grupo SETEC Marine Service. Todos os direitos reservados.</p>
+<p class="text-on-primary-container text-[12px] flex items-center gap-2">
+                    Desenvolvido com <span class="material-symbols-outlined text-[14px] text-error" style="font-variation-settings: &quot;FILL&quot; 1;">favorite</span> para a indústria brasileira.
+                </p>
+</div>
+</div>
+</footer>
+<!-- WhatsApp FAB -->
+<div class="fixed bottom-8 right-8 z-50 flex items-center justify-center">
+  <!-- Pulsing background ring -->
+  <span class="absolute w-16 h-16 rounded-full bg-[#25D366] opacity-75 animate-ping pointer-events-none"></span>
+  
+  <!-- Main Button -->
+  <a class="relative w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300" href="https://wa.me/5521967197615" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <img src="logos/whatsapp_icon.png" class="w-full h-full rounded-full object-cover" alt="WhatsApp">
+  </a>
+</div>
+<script>
+        // Header minimize effect and scroll handling
+        const nav = document.getElementById('top-nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        function handleScroll() {
+            const heroHeight = window.innerHeight;
+            const scrollPos = window.scrollY;
+            const isMobile = window.innerWidth < 768;
+
+            if (scrollPos === 0) {
+                // At the very top of the page - show transparent expanded nav
+                nav.style.transform = 'translateY(0)';
+                nav.classList.remove('nav-scrolled');
+                navLinks.forEach(link => {
+                    link.classList.add('text-white');
+                    link.classList.remove('text-on-surface');
+                });
+            } else if (isMobile) {
+                // On mobile, keep it collapsed/hidden once the user scrolls down
+                nav.style.transform = 'translateY(-100%)';
+            } else if (scrollPos > 0 && scrollPos <= heroHeight - 80) {
+                // Scrolling inside the Hero section - hide nav to prevent overlap with Hero text
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolled past the Hero section - show sticky nav with solid background
+                nav.style.transform = 'translateY(0)';
+                nav.classList.add('nav-scrolled');
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-on-surface');
+                });
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        // Initial check on page load
+        handleScroll();
+
+        // Intersection Observer for fade-up animations
+        const revealElements = document.querySelectorAll('.reveal-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+</script>
+<script type="text/javascript">
+const dictionary = {
+    // Navigation
+    "Serviços": "Services",
+    "Diferenciais": "Key Features",
+    "Atuação": "Industries",
+    "Contato": "Contact",
+
+    // Hero
+    "A segurança da sua carga é": "Your cargo's safety is",
+    "inegociável": "non-negotiable",
+    "Garantimos a integridade dos seus ativos com engenharia de ponta e conformidade rigorosa. Do offshore ao chão de fábrica, somos seu parceiro em confiabilidade técnica.": "We guarantee the integrity of your assets with state-of-the-art engineering and strict compliance. From offshore to the factory floor, we are your partner in technical reliability.",
+    "Solicitar Diagnóstico Técnico": "Request Technical Diagnosis",
+    "Ver nossos serviços": "View our services",
+    "+ de 200 clientes ativos": "Over 200 active clients",
+    "Rolar": "Scroll",
+
+    // Quem Somos / About Us
+    "Especialistas em movimentação de carga, do mar à indústria.": "Specialists in cargo handling, from sea to industry.",
+    "O Grupo SETEC nasceu com a missão de elevar os padrões de segurança e eficiência em operações críticas. Combinamos décadas de experiência técnica com as mais modernas tecnologias de inspeção e monitoramento.": "SETEC Group was born with the mission of raising safety and efficiency standards in critical operations. We combine decades of technical experience with the most modern inspection and monitoring technologies.",
+    "Certificações nacionais e internacionais reconhecidas.": "Recognized national and international certifications.",
+    "Equipe técnica multidisciplinar altamente qualificada.": "Highly qualified multidisciplinary technical team.",
+    "Atendimento 24/7 para operações emergenciais.": "24/7 support for emergency operations.",
+    "Anos de experiência": "Years of experience",
+    "Empresas que escolheram o Grupo Setec": "Companies that chose SETEC Group",
+
+    // Why Us / Problema vs Solução
+    "Movimentação de carga Segura e Certificada.": "Safe and Certified Cargo Handling.",
+    "Mitigamos riscos operacionais através de três pilares fundamentais de excelência técnica.": "We mitigate operational risks through three fundamental pillars of technical excellence.",
+    "Inspeção Preditiva": "Predictive Inspection",
+    "Identificação antecipada de falhas estruturais através de ensaios não destrutivos e análise técnica rigorosa.": "Early identification of structural failures through non-destructive testing and rigorous technical analysis.",
+    "Conformidade Total": "Total Compliance",
+    "Garantia de que todo equipamento e acessório de movimentação esteja em total acordo com as normas vigentes (NR, ISO, IMO).": "Guarantee that all handling equipment and accessories are in full compliance with current standards (NR, ISO, IMO).",
+    "Gestão de Risco": "Risk Management",
+    "Sistemas inteligentes de rastreabilidade e controle de certificados que eliminam erros humanos e vencimentos críticos.": "Intelligent traceability and certificate control systems that eliminate human errors and critical expirations.",
+
+    // Services
+    "Portfólio de Soluções": "Portfolio of Solutions",
+    "Serviços Especializados": "Specialized Services",
+    "Inspeção de Acessórios": "Accessories Inspection",
+    "Exame rigoroso de cabos de aço, correntes, cintas, manilhas e ganchos. Nossos especialistas garantem que cada elo da sua operação esteja livre de defeitos, utilizando técnicas visuais e instrumentais avançadas.": "Rigorous examination of steel cables, chains, slings, shackles, and hooks. Our specialists ensure that every link of your operation is defect-free, using advanced visual and instrumental techniques.",
+    "Saiba mais →": "Learn more →",
+    "Teste de Carga (Load Test)": "Load Test",
+    "Execução de testes estáticos e dinâmicos em guindastes, pontes rolantes e turcos. Utilizamos bolsas de água ou pesos padronizados, fornecendo certificados de conformidade imediatos após a validação.": "Execution of static and dynamic tests on cranes, overhead cranes, and davits. We use water bags or standardized weights, providing immediate certificates of compliance after validation.",
+    "Consultar engenharia →": "Consult engineering →",
+    "Engenharia e Consultoria": "Engineering and Consulting",
+    "Elaboração de planos de rigging, análise de falhas estruturais e pareceres técnicos de conformidade normativa.": "Development of rigging plans, structural failure analysis, and technical reports of regulatory compliance.",
+    "Falar com consultor →": "Speak with a consultant →",
+    "Certificação de Integridade": "Integrity Certification",
+    "Emissão de laudos e ARTs assinadas por engenheiros especializados para auditorias e fiscalização.": "Issuance of reports and ARTs signed by specialized engineers for audits and inspection.",
+    "Validar documentos →": "Validate documents →",
+
+    // Digital Transformation
+    "TRANSFORMAÇÃO DIGITAL": "DIGITAL TRANSFORMATION",
+    "Toda a sua operação documentada em um só lugar.": "Your entire operation documented in one place.",
+    "Acesso Cloud 24/7": "24/7 Cloud Access",
+    "Seus certificados de inspeção e laudos técnicos disponíveis a qualquer momento, em qualquer lugar.": "Your inspection certificates and technical reports available anytime, anywhere.",
+    "Alertas de Vencimento": "Expiration Alerts",
+    "O sistema notifica automaticamente sua equipe sobre inspeções obrigatórias que estão próximas da data de expiração.": "The system automatically notifies your team about mandatory inspections that are close to expiration.",
+    "Rastreabilidade via QR Code": "Traceability via QR Code",
+    "Cada item inspecionado recebe uma tag única para consulta instantânea do histórico de manutenção no campo.": "Each inspected item receives a unique tag for instant lookup of maintenance history in the field.",
+
+    // Presence
+    "Presença em todo o Ecossistema Industrial": "Presence in the Entire Industrial Ecosystem",
+    "Nossas equipes atuam nos ambientes mais desafiadores, garantindo continuidade e segurança operacional.": "Our teams operate in the most challenging environments, ensuring continuity and safety of operations.",
+    "MARÍTIMO": "MARITIME",
+    "Embarcações e Offshore": "Vessels and Offshore",
+    "Inspeções em alto mar e certificação de guindastes offshore e turcos de salvatagem.": "Offshore inspections and certification of offshore cranes and life-saving davits.",
+    "LOGÍSTICA": "LOGISTICS",
+    "Terminais Portuários": "Port Terminals",
+    "Manutenção de infraestrutura de movimentação pesada e testes de carga em guindastes de cais.": "Maintenance of heavy lifting infrastructure and load testing on quay cranes.",
+    "INDUSTRIAL": "INDUSTRIAL",
+    "Fábricas e Usinas": "Factories and Plants",
+    "Gestão completa de acessórios de içamento e pontes rolantes em plantas industriais complexas.": "Complete management of lifting accessories and overhead cranes in complex industrial plants.",
+
+    // Numbers
+    "Anos de atuação": "Years of operation",
+    "Itens inspecionados": "Inspected items",
+    "Clientes ativos": "Active clients",
+    "Cobertura completa": "Full coverage",
+    "Nacional": "National",
+    "+50 mil": "+50 thousand",
+
+    // Why Choose Us / Diferenciais
+    "Por que escolher o Grupo SETEC?": "Why choose SETEC Group?",
+    "Corpo Técnico Próprio": "In-house Technical Staff",
+    "Não terceirizamos nossa expertise. Nossos inspetores são funcionários treinados.": "We do not outsource our expertise. Our inspectors are trained employees.",
+    "Conformidade ISO": "ISO Compliance",
+    "Processos auditados e certificados pelos mais altos padrões de qualidade.": "Processes audited and certified to the highest quality standards.",
+    "Resposta Rápida": "Rapid Response",
+    "Mobilização imediata para paradas de manutenção e emergências.": "Immediate mobilization for maintenance shutdowns and emergencies.",
+    "Histórico Completo": "Complete History",
+    "Rastreabilidade total de cada componente desde o primeiro dia.": "Full traceability of each component since day one.",
+    "Tecnologia de Ponta": "Cutting-edge Technology",
+    "Uso de drones e ensaios avançados para inspeções em áreas de difícil acesso.": "Use of drones and advanced testing for inspections in hard-to-reach areas.",
+    "Treinamentos": "Training",
+    "Capacitação técnica para as equipes operacionais dos nossos clientes.": "Technical training for our clients' operational teams.",
+    "Gestão de Estoque": "Inventory Management",
+    "Apoio na seleção e reposição inteligente de acessórios de içamento.": "Support in selection and smart replacement of lifting accessories.",
+    "Seguro de RC Profissional": "Professional Liability Insurance",
+    "Tranquilidade jurídica e financeira para nossos parceiros.": "Legal and financial peace of mind for our partners.",
+    "Práticas ESG": "ESG Practices",
+    "Compromisso com a sustentabilidade e segurança social nas operações.": "Commitment to sustainability and social safety in operations.",
+
+    // Testimonial
+    "\"A SETEC transformou nossa gestão de segurança. Hoje temos controle total sobre os certificados e a confiança de que cada içamento é feito com o máximo rigor técnico.\"": "\"SETEC has transformed our safety management. Today we have total control over certificates and the confidence that every lift is executed with maximum technical rigor.\"",
+    "Eng. Ricardo Almeida": "Eng. Ricardo Almeida",
+    "Gerente de Operações · Terminal Marítimo Sul": "Operations Manager · South Maritime Terminal",
+
+    // Contact Form
+    "Pronto para elevar o nível de segurança da sua operação?": "Ready to elevate the safety level of your operation?",
+    "Solicite um diagnóstico técnico ou peça um orçamento personalizado para sua empresa. Nossa equipe entrará em contato em menos de 24 horas.": "Request a technical diagnosis or ask for a customized quote for your company. Our team will contact you in less than 24 hours.",
+    "Nome Completo": "Full Name",
+    "Seu nome": "Your name",
+    "E-mail Corporativo": "Corporate E-mail",
+    "seu@empresa.com.br": "your@company.com",
+    "Telefone": "Phone",
+    "(00) 00000-0000": "(00) 00000-0000",
+    "Empresa": "Company",
+    "Nome da empresa": "Company name",
+    "Serviço de Interesse": "Service of Interest",
+    "Inspeção de Acessórios": "Accessories Inspection",
+    "Teste de Carga": "Load Test",
+    "Engenharia/Consultoria": "Engineering/Consulting",
+    "Locação de Mão de Obra": "Manpower Leasing",
+    "Outros": "Others",
+    "Mensagem": "Message",
+    "Como podemos ajudar?": "How can we help?",
+    "Enviar solicitação": "Send request",
+
+    // Footer
+    "Referência nacional em soluções técnicas para movimentação de carga e segurança operacional.": "National reference in technical solutions for cargo handling and operational safety.",
+    "Links Rápidos": "Quick Links",
+    "Endereço": "Address",
+    "© 2026 Grupo SETEC Marine Service. Todos os direitos reservados.": "© 2026 SETEC Group Marine Service. All rights reserved.",
+
+    // Mobile Optimizations
+    "Garantimos a integridade dos seus ativos com engenharia de ponta e total conformidade técnica.": "We guarantee the integrity of your assets with state-of-the-art engineering and full technical compliance.",
+    "Elevamos os padrões de segurança em operações críticas. Combinamos décadas de experiência com moderna tecnologia de inspeção.": "We raise safety standards in critical operations. We combine decades of experience with modern inspection technology.",
+    "Certificações nacionais e internacionais.": "National and international certifications.",
+    "Equipe técnica altamente qualificada.": "Highly qualified technical team.",
+    "Atendimento 24/7 emergencial.": "24/7 emergency support.",
+    "Exame rigoroso de cabos de aço, correntes, manilhas e ganchos. Garantimos sua operação livre de defeitos com técnicas avançadas.": "Rigorous examination of steel cables, chains, shackles, and hooks. We ensure your operation is defect-free with advanced techniques.",
+    "Testes estáticos e dinâmicos em guindastes e pontes rolantes com emissão imediata de laudos técnicos.": "Static and dynamic testing on cranes and overhead cranes with immediate technical report issuance.",
+    "Planos de rigging, análise de falhas estruturais e pareceres de conformidade.": "Rigging plans, structural failure analysis, and compliance reports.",
+    "Laudos e ARTs emitidos por engenheiros para auditorias e fiscalizações.": "Reports and ARTs issued by engineers for audits and inspections.",
+    "Certificados e laudos na nuvem, disponíveis em tempo real.": "Cloud certificates and reports, available in real-time.",
+    "Notificações automáticas de prazos de inspeções.": "Automatic notifications of inspection deadlines.",
+    "Etiquetas com QR Code para consulta rápida de histórico em campo.": "QR Code tags for quick history lookup in the field.",
+    "Equipes qualificadas nos ambientes mais desafiadores do setor.": "Qualified teams in the industry's most challenging environments.",
+    "Inspeções offshore e certificação de guindastes e turcos.": "Offshore inspections and certification of cranes and davits.",
+    "Testes de carga e manutenção de guindastes portuários.": "Load testing and maintenance of port cranes.",
+    "Gestão de içamento e pontes rolantes em plantas industriais.": "Lifting management and overhead cranes in industrial plants.",
+    "Inspetores próprios e certificados, sem terceirização.": "In-house and certified inspectors, no outsourcing.",
+    "Processos certificados pelos mais altos padrões.": "Processes certified to the highest standards.",
+    "Atendimento ágil para emergências e paradas.": "Agile support for emergencies and shutdowns.",
+    "Histórico completo de cada componente.": "Complete history of each component.",
+    "Uso de drones e tecnologia para acessos difíceis.": "Use of drones and technology for difficult access.",
+    "Capacitação técnica das equipes dos clientes.": "Technical training for clients' teams.",
+    "Apoio na reposição inteligente de acessórios.": "Support in smart accessory replacement.",
+    "Seguro de responsabilidade civil profissional.": "Professional liability insurance.",
+    "Ações focadas em sustentabilidade e governança.": "Actions focused on sustainability and governance.",
+    "\"A SETEC transformou nossa segurança. Temos controle total dos laudos e máxima confiança nos içamentos.\"": "\"SETEC has transformed our safety. We have total control over reports and maximum confidence in lifts.\"",
+    "Solicite um diagnóstico técnico. Responderemos em menos de 24 horas.": "Request a technical diagnosis. We will respond in less than 24 hours."
+};
+
+let currentLang = localStorage.getItem('site-lang') || 'pt';
+const originalTexts = new Map();
+
+function translatePage(lang) {
+    // Translate Page Title
+    document.title = lang === 'en' ? 'SETEC Group — Marine Service' : 'Grupo SETEC — Marine Service';
+
+    // Walk text nodes in body
+    const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    let node;
+    while (node = walk.nextNode()) {
+        const text = node.nodeValue.trim();
+        if (!text) continue;
+        
+        // Skip script tag contents or style tag contents
+        const parentTagName = node.parentElement ? node.parentElement.tagName.toUpperCase() : '';
+        if (parentTagName === 'SCRIPT' || parentTagName === 'STYLE') continue;
+
+        if (!originalTexts.has(node)) {
+            originalTexts.set(node, node.nodeValue);
+        }
+        
+        const origVal = originalTexts.get(node);
+        const origTrimmed = origVal.trim();
+        
+        if (lang === 'en') {
+            if (dictionary[origTrimmed]) {
+                const leadingWhitespace = origVal.match(/^\s*/)[0];
+                const trailingWhitespace = origVal.match(/\s*$/)[0];
+                node.nodeValue = leadingWhitespace + dictionary[origTrimmed] + trailingWhitespace;
+            }
+        } else {
+            node.nodeValue = origVal;
+        }
+    }
+    
+    // Translate placeholders
+    document.querySelectorAll('[placeholder]').forEach(el => {
+        if (!el.hasAttribute('data-orig-placeholder')) {
+            el.setAttribute('data-orig-placeholder', el.getAttribute('placeholder'));
+        }
+        const origPh = el.getAttribute('data-orig-placeholder').trim();
+        if (lang === 'en') {
+            if (dictionary[origPh]) {
+                el.setAttribute('placeholder', dictionary[origPh]);
+            }
+        } else {
+            el.setAttribute('placeholder', el.getAttribute('data-orig-placeholder'));
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const langBtns = document.querySelectorAll('.custom-lang-btn');
+    const langFlags = document.querySelectorAll('.custom-lang-flag');
+    
+    // Apply initial translation if language is English
+    if (currentLang === 'en') {
+        langFlags.forEach(flag => flag.textContent = '🇧🇷');
+        translatePage('en');
+    } else {
+        langFlags.forEach(flag => flag.textContent = '🇺🇸');
+    }
+    
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (currentLang === 'pt') {
+                currentLang = 'en';
+                localStorage.setItem('site-lang', 'en');
+                langFlags.forEach(flag => flag.textContent = '🇧🇷');
+                translatePage('en');
+            } else {
+                currentLang = 'pt';
+                localStorage.setItem('site-lang', 'pt');
+                langFlags.forEach(flag => flag.textContent = '🇺🇸');
+                translatePage('pt');
+            }
+        });
+    });
+});
+</script>
+</body></html>
