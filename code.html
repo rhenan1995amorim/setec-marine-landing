@@ -356,62 +356,252 @@
 </div>
 </div>
 </section>
-<!-- Serviços (Bento Grid) -->
+<!-- Serviços (12 Cards Grid) -->
 <section class="py-16 md:py-32 bg-cream-bg text-primary-container" id="servicos">
 <div class="max-w-container-max-width mx-auto px-8">
 <div class="mb-10 md:mb-16 reveal-up">
 <span class="font-label-caps text-label-caps text-copper tracking-widest block mb-4 uppercase">Portfólio de Soluções</span>
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Serviços Especializados</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-6 h-auto md:h-[800px]">
-<!-- Card 1: Inspeção de Acessórios -->
-<div class="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-outline-variant/10 flex flex-col justify-between group hover:shadow-xl transition-all md:row-span-2 reveal-up">
-<div>
-<span class="material-symbols-outlined text-4xl text-copper mb-6">link</span>
-<h3 class="font-headline-md text-headline-md mb-4">Inspeção de Acessórios</h3>
-<p class="hidden md:block text-on-primary-fixed-variant font-body-md">Exame rigoroso de cabos de aço, correntes, cintas, manilhas e ganchos. Nossos especialistas garantem que cada elo da sua operação esteja livre de defeitos, utilizando técnicas visuais e instrumentais avançadas.</p>
-<p class="block md:hidden text-on-primary-fixed-variant font-body-md">Exame rigoroso de cabos de aço, correntes, manilhas e ganchos. Garantimos sua operação livre de defeitos com técnicas avançadas.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Card 1: Propulsão Naval -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Propulsão Naval" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="propulsao_naval.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">propulsion</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Propulsão Naval</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Manutenção e reparo especializado para propulsores e eixos de todas as marcas.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(1)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
-<div class="mt-8 pt-8 border-t border-outline-variant/10">
-<span class="font-label-caps text-label-caps text-copper group-hover:translate-x-2 inline-block transition-transform">Saiba mais →</span>
+
+<!-- Card 2: Sistemas de Governo e Máquinas de Leme -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 50ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Sistemas de Governo" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="sistemas_governo.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">explore</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Sistemas de Governo e Máquinas de Leme</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Manutenção integral de lemes, servomotores e sistemas de controle.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(2)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
+
+<!-- Card 3: Sistemas de Vedação -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 100ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Sistemas de Vedação" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="sistemas_vedacao.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">settings_input_component</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Sistemas de Vedação</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Especialistas em selos de tubo telescópico com vulcanização in-situ.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(3)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
-<!-- Card 2: Teste de Carga -->
-<div class="bg-primary-container text-white p-6 sm:p-10 rounded-2xl shadow-lg flex flex-col justify-between group hover:brightness-110 transition-all md:col-span-2 reveal-up" style="transition-delay: 100ms;">
-<div class="flex flex-col md:flex-row gap-8">
-<div class="md:w-2/3">
-<span class="material-symbols-outlined text-4xl text-tertiary mb-6">weight</span>
-<h3 class="font-headline-md text-headline-md mb-4 text-white">Teste de Carga (Load Test)</h3>
-<p class="hidden md:block text-on-primary-container font-body-md">Execução de testes estáticos e dinâmicos em guindastes, pontes rolantes e turcos. Utilizamos bolsas de água ou pesos padronizados, fornecendo certificados de conformidade imediatos após a validação.</p>
-<p class="block md:hidden text-on-primary-container font-body-md">Testes estáticos e dinâmicos em guindastes e pontes rolantes com emissão imediata de laudos técnicos.</p>
+
+<!-- Card 4: Reparos de Hélices -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 150ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Reparos de Hélices" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="reparo_helices.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">build</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Reparos de Hélices</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Engenharia corretiva em pás, alteração de passo e balanceamento estático.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(4)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
-<div class="md:w-1/3 hidden md:block">
-<img alt="Load test" class="rounded-lg object-cover h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8VZkE1KFQCk9ySmy1fLt3IzinQZlU1gmDNn98O2pTETfwN8B508Q0f3LYGzltkrvFDGdRyoSdOoYeFhA6gsVcz61hxeT_ZFysuUyNv2pIZCfgek3aMdoFTZXnMCEhWjSekfwC7Z05vg10ZIlpNbAO2W5th9ryDJhNy2nkBucIl5NsBEesvk8uiUf28IvN7p9ERsHkps86b6jlkVPwYN0g3arBIAlvfzG09SMOUENFTsnk_A_E5bJtzTCS08ygoQKW3iEHFweoRAv5">
+
+<!-- Card 5: Sistemas de Elevação Strand Jack -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 200ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Strand Jack" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="strand_jack.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">compress</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Sistemas de Elevação Strand Jack</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Instalação e descomissionamento de propulsores em manobra submersa.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(5)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
+
+<!-- Card 6: Reparos Navais -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 250ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Reparos Navais" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="reparos_navais.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">construction</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Reparos Navais</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Fabricação estrutural e soldagem especializada sob rigoroso padrão.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(6)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
-<div class="mt-8">
-<span class="font-label-caps text-label-caps text-tertiary group-hover:translate-x-2 inline-block transition-transform">Consultar engenharia →</span>
+
+<!-- Card 7: Mecânica Naval e Industrial -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 300ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Mecânica Naval" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="mecanica_naval.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">home_repair_service</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Mecânica Naval e Industrial</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Montagem, comissionamento e manutenção de máquinas críticas.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(7)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
+
+<!-- Card 8: Alinhamento a Laser -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 350ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Alinhamento a Laser" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="alinhamento_laser.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">leak_add</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Alinhamento a Laser</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Geometria e alinhamento de precisão certificado de eixos rotativos.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(8)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
-<!-- Card 3: Consultoria Técnica -->
-<div class="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-outline-variant/10 flex flex-col justify-between group hover:shadow-xl transition-all reveal-up" style="transition-delay: 200ms;">
-<div>
-<span class="material-symbols-outlined text-4xl text-copper mb-6">psychology</span>
-<h3 class="font-headline-md text-headline-md mb-4">Engenharia e Consultoria</h3>
-<p class="hidden md:block text-on-primary-fixed-variant font-body-md">Elaboração de planos de rigging, análise de falhas estruturais e pareceres técnicos de conformidade normativa.</p>
-<p class="block md:hidden text-on-primary-fixed-variant font-body-md">Planos de rigging, análise de falhas estruturais e pareceres de conformidade.</p>
+
+<!-- Card 9: Calços Ajustáveis e Resinas Epóxi -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 400ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Calços Ajustáveis" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="calcos_ajustaveis.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">widgets</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Calços Ajustáveis e Resinas Epóxi</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Soluções de calçamento técnico de precisão para máquinas pesadas.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(9)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
-<span class="font-label-caps text-label-caps text-copper group-hover:translate-x-2 inline-block transition-transform">Falar com consultor →</span>
+
+<!-- Card 10: Sistemas Hidráulicos -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 450ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Sistemas Hidráulicos" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="sistemas_hidraulicos.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">water_drop</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Sistemas Hidráulicos</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Manutenção de HPUs, flushing e reparo certificado de cilindros.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(10)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
-<!-- Card 4: Certificação -->
-<div class="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-outline-variant/10 flex flex-col justify-between group hover:shadow-xl transition-all reveal-up" style="transition-delay: 300ms;">
-<div>
-<span class="material-symbols-outlined text-4xl text-copper mb-6">approval</span>
-<h3 class="font-headline-md text-headline-md mb-4">Certificação de Integridade</h3>
-<p class="hidden md:block text-on-primary-fixed-variant font-body-md">Emissão de laudos e ARTs assinadas por engenheiros especializados para auditorias e fiscalização.</p>
-<p class="block md:hidden text-on-primary-fixed-variant font-body-md">Laudos e ARTs emitidos por engenheiros para auditorias e fiscalizações.</p>
+
+<!-- Card 11: Guindastes e Equipamentos de Convés -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 500ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Guindastes" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="guindastes_conves.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">anchor</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Guindastes e Equipamentos de Convés</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Comissionamento, testes de carga e manutenção em guinchos e turcos.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(11)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
-<span class="font-label-caps text-label-caps text-copper group-hover:translate-x-2 inline-block transition-transform">Validar documentos →</span>
+
+<!-- Card 12: Análise de Vibração -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 550ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Análise de Vibração" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="analise_vibracao.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">query_stats</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Análise de Vibração</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Diagnóstico preditivo avançado de alta precisão (SPM HD) até 1 RPM.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(12)">Saiba mais →</button>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -723,10 +913,18 @@
 <div>
 <label class="font-label-caps text-label-caps text-primary-container mb-2 block">Serviço de Interesse</label>
 <select class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container">
-<option>Inspeção de Acessórios</option>
-<option>Teste de Carga</option>
-<option>Engenharia/Consultoria</option>
-<option>Locação de Mão de Obra</option>
+<option>Propulsão Naval</option>
+<option>Sistemas de Governo e Leme</option>
+<option>Sistemas de Vedação</option>
+<option>Reparos de Hélices</option>
+<option>Sistemas de Elevação (Strand Jack)</option>
+<option>Reparos Navais Estruturais</option>
+<option>Mecânica Naval e Industrial</option>
+<option>Alinhamento a Laser</option>
+<option>Calços e Resinas Epóxi</option>
+<option>Sistemas Hidráulicos</option>
+<option>Guindastes e Convés</option>
+<option>Análise de Vibração</option>
 <option>Outros</option>
 </select>
 </div>
@@ -813,8 +1011,40 @@
   <!-- Main Button -->
   <a class="relative w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300" href="https://wa.me/5521967197615" target="_blank" aria-label="Fale conosco no WhatsApp">
     <img src="logos/whatsapp_icon.png" class="w-full h-full rounded-full object-cover" alt="WhatsApp">
-  </a>
 </div>
+
+<!-- Single Reusable Services Modal -->
+<div id="services-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-[#0d0e10]/80 backdrop-blur-md" onclick="closeServiceModal()"></div>
+  <!-- Modal Content Container -->
+  <div class="glass-card bg-[#1b1c1d]/90 border border-white/10 rounded-2xl w-full max-w-2xl relative z-10 overflow-hidden shadow-2xl transform scale-95 transition-all duration-300 flex flex-col">
+    <!-- Header Image -->
+    <div class="h-56 md:h-64 w-full relative">
+      <img id="modal-image" class="w-full h-full object-cover" src="" alt="">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#1b1c1d] via-transparent to-transparent"></div>
+      <button onclick="closeServiceModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 border border-white/10 text-white flex items-center justify-center hover:scale-105 transition-all focus:outline-none" aria-label="Fechar / Close">
+        <span class="material-symbols-outlined text-xl">close</span>
+      </button>
+    </div>
+    <!-- Body Content -->
+    <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <span id="modal-icon" class="material-symbols-outlined text-3xl text-tertiary">propulsion</span>
+          <h2 id="modal-title" class="font-headline-md text-[24px] md:text-[28px] font-bold text-white leading-tight"></h2>
+        </div>
+        <div class="h-px bg-white/10 my-2"></div>
+        <p id="modal-description" class="text-on-surface-variant font-body-md text-sm md:text-base leading-relaxed max-h-48 md:max-h-60 overflow-y-auto pr-2"></p>
+      </div>
+      <div class="mt-6 pt-6 border-t border-white/10 flex justify-end gap-4">
+        <button id="modal-close-btn" onclick="closeServiceModal()" class="px-5 py-2.5 rounded-lg border border-white/10 hover:bg-white/5 font-label-caps text-[11px] text-white transition-all">Fechar</button>
+        <button id="modal-cta-btn" onclick="modalCTA()" class="px-6 py-2.5 bg-tertiary text-primary-container hover:bg-tertiary-fixed rounded-lg font-label-caps text-[11px] font-bold transition-all shadow-lg shadow-tertiary/20">Solicitar Orçamento</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
         // Header minimize effect and scroll handling
         const nav = document.getElementById('top-nav');
@@ -905,18 +1135,49 @@ const dictionary = {
     // Services
     "Portfólio de Soluções": "Portfolio of Solutions",
     "Serviços Especializados": "Specialized Services",
-    "Inspeção de Acessórios": "Accessories Inspection",
-    "Exame rigoroso de cabos de aço, correntes, cintas, manilhas e ganchos. Nossos especialistas garantem que cada elo da sua operação esteja livre de defeitos, utilizando técnicas visuais e instrumentais avançadas.": "Rigorous examination of steel cables, chains, slings, shackles, and hooks. Our specialists ensure that every link of your operation is defect-free, using advanced visual and instrumental techniques.",
     "Saiba mais →": "Learn more →",
-    "Teste de Carga (Load Test)": "Load Test",
-    "Execução de testes estáticos e dinâmicos em guindastes, pontes rolantes e turcos. Utilizamos bolsas de água ou pesos padronizados, fornecendo certificados de conformidade imediatos após a validação.": "Execution of static and dynamic tests on cranes, overhead cranes, and davits. We use water bags or standardized weights, providing immediate certificates of compliance after validation.",
-    "Consultar engenharia →": "Consult engineering →",
-    "Engenharia e Consultoria": "Engineering and Consulting",
-    "Elaboração de planos de rigging, análise de falhas estruturais e pareceres técnicos de conformidade normativa.": "Development of rigging plans, structural failure analysis, and technical reports of regulatory compliance.",
-    "Falar com consultor →": "Speak with a consultant →",
-    "Certificação de Integridade": "Integrity Certification",
-    "Emissão de laudos e ARTs assinadas por engenheiros especializados para auditorias e fiscalização.": "Issuance of reports and ARTs signed by specialized engineers for audits and inspection.",
-    "Validar documentos →": "Validate documents →",
+
+    // Titles
+    "Propulsão Naval": "Marine Propulsion",
+    "Sistemas de Governo e Máquinas de Leme": "Steering Gears and Steering Engines",
+    "Sistemas de Vedação": "Sealing Systems",
+    "Reparos de Hélices": "Propeller Repairs",
+    "Sistemas de Elevação Strand Jack": "Strand Jack Lifting Systems",
+    "Reparos Navais": "Naval Repairs",
+    "Mecânica Naval e Industrial": "Marine and Industrial Mechanics",
+    "Alinhamento a Laser": "Laser Alignment",
+    "Calços Ajustáveis e Resinas Epóxi": "Adjustable Chocks and Epoxy Resins",
+    "Sistemas Hidráulicos": "Hydraulic Systems",
+    "Guindastes e Equipamentos de Convés": "Cranes and Deck Equipment",
+    "Análise de Vibração": "Vibration Analysis",
+
+    // Hooks
+    "Manutenção e reparo especializado para propulsores e eixos de todas as marcas.": "Specialized maintenance and repair for propellers and shafts of all brands.",
+    "Manutenção integral de lemes, servomotores e sistemas de controle.": "Comprehensive maintenance for rudders, steering engines, and control systems.",
+    "Especialistas em selos de tubo telescópico com vulcanização in-situ.": "Experts in stern tube sealing systems with in-situ vulcanization.",
+    "Engenharia corretiva em pás, alteração de passo e balanceamento estático.": "Corrective engineering for blades, pitch adjustment, and static balancing.",
+    "Instalação e descomissionamento de propulsores em manobra submersa.": "Installation and decommissioning of thrusters in submerged maneuvers.",
+    "Fabricação estrutural e soldagem especializada sob rigoroso padrão.": "Structural fabrication and specialized welding under strict standards.",
+    "Montagem, comissionamento e manutenção de máquinas críticas.": "Assembly, commissioning, and maintenance of critical machinery.",
+    "Geometria e alinhamento de precisão certificado de eixos rotativos.": "Geometry and certified precision alignment of rotating shafts.",
+    "Soluções de calçamento técnico de precisão para máquinas pesadas.": "Precision technical chocking solutions for heavy machinery.",
+    "Manutenção de HPUs, flushing e reparo certificado de cilindros.": "HPU maintenance, oil flushing, and certified cylinder repair.",
+    "Comissionamento, testes de carga e manutenção em guinchos e turcos.": "Commissioning, load testing, and maintenance on winches and davits.",
+    "Diagnóstico preditivo avançado de alta precisão (SPM HD) até 1 RPM.": "Advanced high-precision predictive diagnosis (SPM HD) down to 1 RPM.",
+
+    // Full Descriptions
+    "Oferecemos engenharia de ponta para a manutenção técnica e reparo corretivo ou preventivo de sistemas de propulsão naval de múltiplos fabricantes. Com uma equipe altamente qualificada, garantimos a máxima eficiência hidrodinâmica e segurança operacional dos seus propulsores e eixos, seguindo rigorosos padrões de qualidade e certificações.": "We offer state-of-the-art engineering for technical maintenance and corrective or preventive repairs of marine propulsion systems from various manufacturers. With a highly qualified team, we guarantee maximum hydrodynamic efficiency and operational safety for your thrusters and shafts, adhering to strict quality standards and certifications.",
+    "Manutenção completa de sistemas de governo e máquinas de leme. Nossa atuação abrange desde o comissionamento técnico, desmontagem e remoção, até a revisão profunda e instalação de sistemas de controle elétrico, hidráulico e mecânico, garantindo manobrabilidade precisa e segura de embarcações de qualquer porte.": "Complete maintenance of steering systems and steering gear. Our work ranges from technical commissioning, disassembly, and removal, to deep overhaul and installation of electrical, hydraulic, and mechanical control systems, guaranteeing precise and safe maneuverability for vessels of any size.",
+    "Serviços especializados em sistemas de vedação de tubos telescópicos de renomados fabricantes internacionais (como Blohm & Voss Simplex, IHC Lagersmit, Wärtsilä, Kemel, John Crane, entre outros). Contamos com equipe treinada para realizar intervenções complexas, incluindo processos de vulcanização no local para eliminar vazamentos de forma ágil e segura.": "Specialized services in sealing systems for stern tubes from renowned international manufacturers (such as Blohm & Voss Simplex, IHC Lagersmit, Wärtsilä, Kemel, John Crane, and others). We have a trained team to perform complex interventions, including on-site vulcanization processes to eliminate leaks quickly and safely.",
+    "Soluções completas para reparos de hélices danificadas por cavitação, amassados ou erosão. Realizamos endireitamento geométrico de pás, medições de alta precisão, mudança de passo, soldagem especializada em bronze-manganês e balanceamento estático profissional, devolvendo a eficiência e a performance da embarcação.": "Complete solutions for repairing propellers damaged by cavitation, dents, or erosion. We perform geometric straightening of blades, high-precision measurements, pitch changes, specialized welding in manganese-bronze, and professional static balancing, restoring the vessel's efficiency and performance.",
+    "Engenharia de rigging e movimentação vertical pesada usando a tecnologia Strand Jacks para o descomissionamento e instalação de propulsores azimutais com manobra submersa. Nossa equipe é qualificada internacionalmente e altamente treinada no controle, operação e garantia de segurança de manobras críticas.": "Rigging engineering and heavy vertical lifting using Strand Jacks technology for the decommissioning and installation of azimuth thrusters with submerged maneuvering. Our team is internationally qualified and highly trained in controlling, operating, and ensuring the safety of critical maneuvers.",
+    "Fabricação estrutural pesada e soldagem naval certificada sob demanda. Projetamos, fabricamos e montamos peças em aço carbono, latão, aço inoxidável e ligas especiais. Supervisionamos todas as fases do reparo técnico para assegurar conformidade total com as solicitações dos clientes e sociedades classificadoras.": "Heavy structural fabrication and certified marine welding on demand. We design, manufacture, and assemble parts in carbon steel, brass, stainless steel, and special alloys. We supervise all phases of the technical repair to ensure full compliance with client requirements and classification societies.",
+    "Soluções multidisciplinares em mecânica industrial e engenharia mecânica naval. Atuamos ativamente na montagem de precisão, comissionamento operacional, manutenção preventiva e corretiva de turbinas, motores, redutores e equipamentos mecânicos complexos em plataformas, estaleiros e instalações terrestres.": "Multidisciplinary solutions in industrial mechanics and marine mechanical engineering. We actively work in precision assembly, operational commissioning, and preventive and corrective maintenance of turbines, engines, gearboxes, and complex mechanical equipment on platforms, shipyards, and land installations.",
+    "Serviço certificado de alinhamento a laser de última geração utilizando tecnologia SPM. Realizamos o alinhamento geométrico preciso de linhas de eixos, acoplamentos de motores, redutores, geradores e bombas, além de medições tridimensionais de planicidade, esquadro e retilineidade de bases e acomodações.": "State-of-the-art certified laser alignment service using SPM technology. We perform precise geometric alignment of shaft lines, motor couplings, gearboxes, generators, and pumps, as well as three-dimensional measurements of flatness, squareness, and straightness of bases and accommodations.",
+    "Engenharia de calçamento de precisão e aplicação de calços de resinas epóxi e calços metálicos ajustáveis. Desenvolvemos o cálculo estrutural, fornecemos os materiais e realizamos a aplicação técnica para fixação de motores, redutores, mancais e maquinário crítico rotativo ou estático, garantindo a eliminação de vibrações indesejadas e desalinhamentos futuros.": "Precision chocking engineering and application of epoxy resin chocks and adjustable metal chocks. We develop structural calculations, supply materials, and perform technical application for fixing engines, gearboxes, bearings, and critical rotating or static machinery, ensuring the elimination of unwanted vibrations and future misalignments.",
+    "Manutenção corretiva e preventiva de sistemas e equipamentos hidráulicos industriais e offshore. Especialistas no reparo técnico de cilindros hidráulicos de dupla e simples ação, motores, bombas de pistão, acumuladores de pressão, e válvulas de controle, além de serviços de flushing de óleo hidráulico e revisão geral de HPUs (Unidades de Força Hidráulica).": "Corrective and preventive maintenance of industrial and offshore hydraulic systems and equipment. Experts in technical repair of double- and single-acting hydraulic cylinders, motors, piston pumps, pressure accumulators, and control valves, as well as hydraulic oil flushing services and general overhauls of HPUs (Hydraulic Power Units).",
+    "Soluções em engenharia naval para comissionamento, manutenção e testes operacionais de guindastes offshore, guinchos de ancoragem, cabrestantes e equipamentos de convés. Nossa equipe de especialistas qualificados garante a conformidade e a segurança operacional de todo o aparato de movimentação a bordo.": "Marine engineering solutions for commissioning, maintenance, and operational testing of offshore cranes, mooring winches, capstans, and deck equipment. Our team of qualified specialists guarantees compliance and operational safety for all moving machinery onboard.",
+    "Engenharia de manutenção preditiva através da análise de vibração espectral. Contamos com analistas certificados pelo Mobius Institute® e tecnologia patenteada SPM HD® de alta definição, permitindo detectar com precisão falhas em rolamentos e engrenagens em rotações extremamente baixas (desde 1 RPM) ou altas frequências, prevendo sinistros e paradas não programadas.": "Predictive maintenance engineering through spectral vibration analysis. We have analysts certified by the Mobius Institute® and patented high-definition SPM HD® technology, allowing us to accurately detect bearing and gear failures at extremely low speeds (from 1 RPM) or high frequencies, predicting incidents and unscheduled downtime.",
 
     // Digital Transformation
     "TRANSFORMAÇÃO DIGITAL": "DIGITAL TRANSFORMATION",
@@ -1111,6 +1372,148 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+});
+
+// Service Modal Data Configuration
+const serviceModalData = {
+    1: {
+        title: "Propulsão Naval",
+        icon: "propulsion",
+        img: "propulsao_naval.png",
+        desc: "Oferecemos engenharia de ponta para a manutenção técnica e reparo corretivo ou preventivo de sistemas de propulsão naval de múltiplos fabricantes. Com uma equipe altamente qualificada, garantimos a máxima eficiência hidrodinâmica e segurança operacional dos seus propulsores e eixos, seguindo rigorosos padrões de qualidade e certificações."
+    },
+    2: {
+        title: "Sistemas de Governo e Máquinas de Leme",
+        icon: "explore",
+        img: "sistemas_governo.png",
+        desc: "Manutenção completa de sistemas de governo e máquinas de leme. Nossa atuação abrange desde o comissionamento técnico, desmontagem e remoção, até a revisão profunda e instalação de sistemas de controle elétrico, hidráulico e mecânico, garantindo manobrabilidade precisa e segura de embarcações de qualquer porte."
+    },
+    3: {
+        title: "Sistemas de Vedação",
+        icon: "settings_input_component",
+        img: "sistemas_vedacao.png",
+        desc: "Serviços especializados em sistemas de vedação de tubos telescópicos de renomados fabricantes internacionais (como Blohm & Voss Simplex, IHC Lagersmit, Wärtsilä, Kemel, John Crane, entre outros). Contamos com equipe treinada para realizar intervenções complexas, incluindo processos de vulcanização no local para eliminar vazamentos de forma ágil e segura."
+    },
+    4: {
+        title: "Reparos de Hélices",
+        icon: "build",
+        img: "reparo_helices.png",
+        desc: "Soluções completas para reparos de hélices danificadas por cavitação, amassados ou erosão. Realizamos endireitamento geométrico de pás, medições de alta precisão, mudança de passo, soldagem especializada em bronze-manganês e balanceamento estático profissional, devolvendo a eficiência e a performance da embarcação."
+    },
+    5: {
+        title: "Sistemas de Elevação Strand Jack",
+        icon: "compress",
+        img: "strand_jack.png",
+        desc: "Engenharia de rigging e movimentação vertical pesada usando a tecnologia Strand Jacks para o descomissionamento e instalação de propulsores azimutais com manobra submersa. Nossa equipe é qualificada internacionalmente e altamente treinada no controle, operação e garantia de segurança de manobras críticas."
+    },
+    6: {
+        title: "Reparos Navais",
+        icon: "construction",
+        img: "reparos_navais.png",
+        desc: "Fabricação estrutural pesada e soldagem naval certificada sob demanda. Projetamos, fabricamos e montamos peças em aço carbono, latão, aço inoxidável e ligas especiais. Supervisionamos todas as fases do reparo técnico para assegurar conformidade total com as solicitações dos clientes e sociedades classificadoras."
+    },
+    7: {
+        title: "Mecânica Naval e Industrial",
+        icon: "home_repair_service",
+        img: "mecanica_naval.png",
+        desc: "Soluções multidisciplinares em mecânica industrial e engenharia mecânica naval. Atuamos ativamente na montagem de precisão, comissionamento operacional, manutenção preventiva e corretiva de turbinas, motores, redutores e equipamentos mecânicos complexos em plataformas, estaleiros e instalações terrestres."
+    },
+    8: {
+        title: "Alinhamento a Laser",
+        icon: "leak_add",
+        img: "alinhamento_laser.png",
+        desc: "Serviço certificado de alinhamento a laser de última geração utilizando tecnologia SPM. Realizamos o alinhamento geométrico preciso de linhas de eixos, acoplamentos de motores, redutores, geradores e bombas, além de medições tridimensionais de planicidade, esquadro e retilineidade de bases e acomodações."
+    },
+    9: {
+        title: "Calços Ajustáveis e Resinas Epóxi",
+        icon: "widgets",
+        img: "calcos_ajustaveis.png",
+        desc: "Engenharia de calçamento de precisão e aplicação de calços de resinas epóxi e calços metálicos ajustáveis. Desenvolvemos o cálculo estrutural, fornecemos os materiais e realizamos a aplicação técnica para fixação de motores, redutores, mancais e maquinário crítico rotativo ou estático, garantindo a eliminação de vibrações indesejadas e desalinhamentos futuros."
+    },
+    10: {
+        title: "Sistemas Hidráulicos",
+        icon: "water_drop",
+        img: "sistemas_hidraulicos.png",
+        desc: "Manutenção corretiva e preventiva de sistemas e equipamentos hidráulicos industriais e offshore. Especialistas no reparo técnico de cilindros hidráulicos de dupla e simples ação, motores, bombas de pistão, acumuladores de pressão, e válvulas de controle, além de serviços de flushing de óleo hidráulico e revisão geral de HPUs (Unidades de Força Hidráulica)."
+    },
+    11: {
+        title: "Guindastes e Equipamentos de Convés",
+        icon: "anchor",
+        img: "guindastes_conves.png",
+        desc: "Soluções em engenharia naval para comissionamento, manutenção e testes operacionais de guindastes offshore, guinchos de ancoragem, cabrestantes e equipamentos de convés. Nossa equipe de especialistas qualificados garante a conformidade e a segurança operacional de todo o aparato de movimentação a bordo."
+    },
+    12: {
+        title: "Análise de Vibração",
+        icon: "query_stats",
+        img: "analise_vibracao.png",
+        desc: "Engenharia de manutenção preditiva através da análise de vibração espectral. Contamos com analistas certificados pelo Mobius Institute® e tecnologia patenteada SPM HD® de alta definição, permitindo detectar com precisão falhas em rolamentos e engrenagens em rotações extremamente baixas (desde 1 RPM) ou altas frequências, prevendo sinistros e paradas não programadas."
+    }
+};
+
+function openServiceModal(id) {
+    const data = serviceModalData[id];
+    if (!data) return;
+
+    const modal = document.getElementById("services-modal");
+    const modalImg = document.getElementById("modal-image");
+    const modalIcon = document.getElementById("modal-icon");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDesc = document.getElementById("modal-description");
+    
+    modalImg.src = data.img;
+    modalImg.alt = data.title;
+    modalIcon.textContent = data.icon;
+    
+    const isEn = (currentLang === 'en');
+    
+    const translatedTitle = isEn && dictionary[data.title] ? dictionary[data.title] : data.title;
+    const translatedDesc = isEn && dictionary[data.desc] ? dictionary[data.desc] : data.desc;
+    
+    modalTitle.textContent = translatedTitle;
+    modalDesc.textContent = translatedDesc;
+    
+    const ctaBtn = document.getElementById("modal-cta-btn");
+    const closeBtn = document.getElementById("modal-close-btn");
+    if (ctaBtn) {
+        ctaBtn.textContent = isEn ? "Request Quote" : "Solicitar Orçamento";
+    }
+    if (closeBtn) {
+        closeBtn.textContent = isEn ? "Close" : "Fechar";
+    }
+
+    modal.classList.remove("pointer-events-none");
+    modal.classList.remove("opacity-0");
+    
+    const innerCard = modal.querySelector(".glass-card");
+    innerCard.classList.remove("scale-95");
+    innerCard.classList.add("scale-100");
+}
+
+function closeServiceModal() {
+    const modal = document.getElementById("services-modal");
+    if (!modal) return;
+    modal.classList.add("opacity-0");
+    modal.classList.add("pointer-events-none");
+
+    const innerCard = modal.querySelector(".glass-card");
+    if (innerCard) {
+        innerCard.classList.remove("scale-100");
+        innerCard.classList.add("scale-95");
+    }
+}
+
+function modalCTA() {
+    closeServiceModal();
+    const target = document.getElementById("contato");
+    if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeServiceModal();
+    }
 });
 </script>
 </body></html>
