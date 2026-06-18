@@ -899,30 +899,30 @@
 </div>
 </div>
 <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-2xl reveal-up">
-<form action="#" class="space-y-6">
+<form id="contact-form" class="space-y-6">
 <div class="grid sm:grid-cols-2 gap-6">
 <div>
 <label class="font-label-caps text-label-caps text-primary-container mb-2 block">Nome Completo</label>
-<input class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="Seu nome" type="text">
+<input name="nome" required class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="Seu nome" type="text">
 </div>
 <div>
 <label class="font-label-caps text-label-caps text-primary-container mb-2 block">E-mail Corporativo</label>
-<input class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="seu@empresa.com.br" type="email">
+<input name="email" required class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="seu@empresa.com.br" type="email">
 </div>
 </div>
 <div class="grid sm:grid-cols-2 gap-6">
 <div>
 <label class="font-label-caps text-label-caps text-primary-container mb-2 block">Telefone</label>
-<input class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="(00) 00000-0000" type="tel">
+<input name="telefone" required class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="(00) 00000-0000" type="tel">
 </div>
 <div>
 <label class="font-label-caps text-label-caps text-primary-container mb-2 block">Empresa</label>
-<input class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="Nome da empresa" type="text">
+<input name="empresa" required class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="Nome da empresa" type="text">
 </div>
 </div>
 <div>
 <label class="font-label-caps text-label-caps text-primary-container mb-2 block">Serviço de Interesse</label>
-<select class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container">
+<select name="servico" class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container">
 <option>Propulsão Naval</option>
 <option>Sistemas de Governo e Leme</option>
 <option>Sistemas de Vedação</option>
@@ -940,9 +940,10 @@
 </div>
 <div>
 <label class="font-label-caps text-label-caps text-primary-container mb-2 block">Mensagem</label>
-<textarea class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="Como podemos ajudar?" rows="4"></textarea>
+<textarea name="mensagem" required class="w-full border-0 border-b-2 border-primary-container/20 focus:ring-0 focus:border-copper bg-transparent px-0 py-3 text-primary-container placeholder:text-outline/50" placeholder="Como podemos ajudar?" rows="4"></textarea>
 </div>
 <button class="w-full bg-copper text-white py-4 rounded-lg font-label-caps text-label-caps shadow-lg hover:brightness-110 active:scale-95 transition-all" type="submit">Enviar solicitação</button>
+<div id="form-status" class="mt-4 text-center font-medium text-sm hidden"></div>
 </form>
 </div>
 <!-- Mobile-only Contact Info -->
@@ -1524,6 +1525,75 @@ function modalCTA() {
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         closeServiceModal();
+    }
+});
+
+// Form Submission Logic
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = this;
+    const btn = form.querySelector('button[type="submit"]');
+    const status = document.getElementById('form-status');
+    const isEn = (typeof currentLang !== 'undefined' && currentLang === 'en');
+    
+    // Disable button and show loading status
+    btn.disabled = true;
+    const origBtnText = btn.textContent;
+    btn.textContent = isEn ? "Sending..." : "Enviando...";
+    
+    status.classList.remove('hidden', 'text-red-500', 'text-green-500', 'text-primary-container');
+    status.classList.add('text-primary-container');
+    status.textContent = isEn ? "Sending your request, please wait..." : "Enviando sua solicitação, por favor aguarde...";
+    
+    // Collect form data
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    
+    // URL do Google Apps Script Web App (será substituída pelo usuário após implantar o script)
+    const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+    
+    if (scriptURL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        status.classList.remove('text-primary-container');
+        status.classList.add('text-red-500');
+        status.textContent = isEn 
+            ? "Error: Google Sheets URL is not configured." 
+            : "Erro: A URL de integração com a Planilha não está configurada.";
+        btn.disabled = false;
+        btn.textContent = origBtnText;
+        return;
+    }
+    
+    try {
+        await fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(data)
+        });
+        
+        status.classList.remove('text-primary-container');
+        status.classList.add('text-green-500');
+        status.textContent = isEn 
+            ? "Thank you! Your request has been sent successfully." 
+            : "Muito obrigado! Sua solicitação foi enviada com sucesso.";
+        
+        form.reset();
+    } catch (error) {
+        console.error('Submission error:', error);
+        status.classList.remove('text-primary-container');
+        status.classList.add('text-red-500');
+        status.textContent = isEn 
+            ? "An error occurred. Please try again or contact us via email." 
+            : "Ocorreu um erro ao enviar. Por favor, tente novamente ou entre em contato por e-mail.";
+    } finally {
+        btn.disabled = false;
+        btn.textContent = origBtnText;
     }
 });
 </script>
