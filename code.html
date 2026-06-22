@@ -1319,6 +1319,7 @@ const dictionary = {
 
 let currentLang = localStorage.getItem('site-lang') || 'pt';
 const originalTexts = new Map();
+let currentOpenServiceId = null;
 
 function translatePage(lang) {
     // Translate Page Title
@@ -1463,6 +1464,7 @@ const serviceModalData = {
 };
 
 function openServiceModal(id) {
+    currentOpenServiceId = id;
     const data = serviceModalData[id];
     if (!data) return;
 
@@ -1586,6 +1588,25 @@ function closeThankYouModal() {
 
 function modalCTA() {
     closeServiceModal();
+    const selectElement = document.querySelector('select[name="servico"]');
+    if (selectElement && currentOpenServiceId !== null) {
+        const indexMap = {
+            1: 0,  // Propulsão Naval
+            2: 1,  // Sistemas de Governo e Leme
+            5: 2,  // Sistemas de Elevação (Strand Jack)
+            7: 3,  // Mecânica Naval e Industrial
+            8: 4,  // Alinhamento a Laser
+            9: 5,  // Calços e Resinas Epóxi
+            10: 6, // Sistemas Hidráulicos
+            11: 7, // Guindastes e Convés
+            12: 8, // Análise de Vibração
+            13: 9  // Fire Fighting
+        };
+        const optIndex = indexMap[currentOpenServiceId];
+        if (typeof optIndex !== 'undefined') {
+            selectElement.selectedIndex = optIndex;
+        }
+    }
     const target = document.getElementById("contato");
     if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
