@@ -568,6 +568,26 @@
     </div>
   </div>
 </div>
+
+<!-- Card 13: Fire Fighting -->
+<div class="glass-card bg-white border border-outline-variant/10 rounded-2xl overflow-hidden hover:border-copper/40 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between h-[420px] relative reveal-up" style="transition-delay: 450ms;">
+  <div class="h-48 w-full overflow-hidden relative">
+    <img alt="Fire Fighting" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover" src="fire_fighting.png">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+  </div>
+  <div class="p-6 flex flex-col justify-between flex-grow">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="material-symbols-outlined text-2xl text-copper">local_fire_department</span>
+        <h3 class="font-headline-md text-[18px] font-bold text-[#1b1c1d] line-clamp-1">Fire Fighting</h3>
+      </div>
+      <p class="text-on-primary-fixed-variant text-sm font-body-md line-clamp-3">Sistemas de combate a incêndio de alta potência instalados em embarcações.</p>
+    </div>
+    <div class="mt-4 pt-4 border-t border-outline-variant/10">
+      <button class="font-label-caps text-label-caps text-copper group-hover:translate-x-1 transition-transform cursor-pointer focus:outline-none" onclick="openServiceModal(13)">Saiba mais →</button>
+    </div>
+  </div>
+</div>
 </div>
 </div>
 </section>
@@ -872,6 +892,7 @@
 <option>Sistemas Hidráulicos</option>
 <option>Guindastes e Convés</option>
 <option>Análise de Vibração</option>
+<option>Fire Fighting</option>
 <option>Outros</option>
 </select>
 </div>
@@ -1150,6 +1171,7 @@ const dictionary = {
     "Sistemas Hidráulicos": "Hydraulic Systems",
     "Guindastes e Equipamentos de Convés": "Cranes and Deck Equipment",
     "Análise de Vibração": "Vibration Analysis",
+    "Fire Fighting": "Fire Fighting",
 
     // Hooks
     "Manutenção e reparo especializado para propulsores e eixos de todas as marcas.": "Specialized maintenance and repair for propellers and shafts of all brands.",
@@ -1164,6 +1186,7 @@ const dictionary = {
     "Manutenção de HPUs, flushing e reparo certificado de cilindros.": "HPU maintenance, oil flushing, and certified cylinder repair.",
     "Comissionamento, testes de carga e manutenção em guinchos e turcos.": "Commissioning, load testing, and maintenance on winches and davits.",
     "Diagnóstico preditivo avançado de alta precisão (SPM HD) até 1 RPM.": "Advanced high-precision predictive diagnosis (SPM HD) down to 1 RPM.",
+    "Sistemas de combate a incêndio de alta potência instalados em embarcações.": "High-capacity fire-fighting systems installed on vessels.",
 
     // Full Descriptions
     "Oferecemos engenharia de ponta para a manutenção técnica e reparo corretivo ou preventivo de sistemas de propulsão naval de múltiplos fabricantes. Com uma equipe altamente qualificada, garantimos a máxima eficiência hidrodinâmica e segurança operacional dos seus propulsores e eixos, seguindo rigorosos padrões de qualidade e certificações.": "We offer state-of-the-art engineering for technical maintenance and corrective or preventive repairs of marine propulsion systems from various manufacturers. With a highly qualified team, we guarantee maximum hydrodynamic efficiency and operational safety for your thrusters and shafts, adhering to strict quality standards and certifications.",
@@ -1178,6 +1201,7 @@ const dictionary = {
     "Manutenção corretiva e preventiva de sistemas e equipamentos hidráulicos industriais e offshore. Especialistas no reparo técnico de cilindros hidráulicos de dupla e simples ação, motores, bombas de pistão, acumuladores de pressão, e válvulas de controle, além de serviços de flushing de óleo hidráulico e revisão geral de HPUs (Unidades de Força Hidráulica).": "Corrective and preventive maintenance of industrial and offshore hydraulic systems and equipment. Experts in technical repair of double- and single-acting hydraulic cylinders, motors, piston pumps, pressure accumulators, and control valves, as well as hydraulic oil flushing services and general overhauls of HPUs (Hydraulic Power Units).",
     "Soluções em engenharia naval para comissionamento, manutenção e testes operacionais de guindastes offshore, guinchos de ancoragem, cabrestantes e equipamentos de convés. Nossa equipe de especialistas qualificados garante a conformidade e a segurança operacional de todo o aparato de movimentação a bordo.": "Marine engineering solutions for commissioning, maintenance, and operational testing of offshore cranes, mooring winches, capstans, and deck equipment. Our team of qualified specialists guarantees compliance and operational safety for all moving machinery onboard.",
     "Engenharia de manutenção preditiva através da análise de vibração espectral. Contamos com analistas certificados pelo Mobius Institute® e tecnologia patenteada SPM HD® de alta definição, permitindo detectar com precisão falhas em rolamentos e engrenagens em rotações extremamente baixas (desde 1 RPM) ou altas frequências, prevendo sinistros e paradas não programadas.": "Predictive maintenance engineering through spectral vibration analysis. We have analysts certified by the Mobius Institute® and patented high-definition SPM HD® technology, allowing us to accurately detect bearing and gear failures at extremely low speeds (from 1 RPM) or high frequencies, predicting incidents and unscheduled downtime.",
+    "Comissionamento, manutenção preditiva e testes de performance em sistemas de combate a incêndio de alta capacidade (FiFi 1, 2 e 3). Garantimos a máxima operacionalidade de bombas, canhões monitores, sistemas de espuma e dilúvio, assegurando total conformidade com as normas IMO, Solas e exigências das sociedades classificadoras.": "Commissioning, predictive maintenance, and performance testing for high-capacity external fire-fighting systems (FiFi 1, 2, and 3). We guarantee maximum operational readiness of pumps, monitor cannons, foam and deluge systems, ensuring full compliance with IMO, Solas, and classification society requirements.",
 
     // Digital Transformation
     "TRANSFORMAÇÃO DIGITAL": "DIGITAL TRANSFORMATION",
@@ -1429,6 +1453,12 @@ const serviceModalData = {
         icon: "query_stats",
         img: "analise_vibracao.png",
         desc: "Engenharia de manutenção preditiva através da análise de vibração espectral. Contamos com analistas certificados pelo Mobius Institute® e tecnologia patenteada SPM HD® de alta definição, permitindo detectar com precisão falhas em rolamentos e engrenagens em rotações extremamente baixas (desde 1 RPM) ou altas frequências, prevendo sinistros e paradas não programadas."
+    },
+    13: {
+        title: "Fire Fighting",
+        icon: "local_fire_department",
+        img: "fire_fighting.png",
+        desc: "Comissionamento, manutenção preditiva e testes de performance em sistemas de combate a incêndio de alta capacidade (FiFi 1, 2 e 3). Garantimos a máxima operacionalidade de bombas, canhões monitores, sistemas de espuma e dilúvio, assegurando total conformidade com as normas IMO, Solas e exigências das sociedades classificadoras."
     }
 };
 
